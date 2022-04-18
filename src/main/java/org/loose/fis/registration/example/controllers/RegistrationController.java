@@ -7,6 +7,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.loose.fis.registration.example.exceptions.UsernameAlreadyExistsException;
 import org.loose.fis.registration.example.services.UserService;
+import javax.swing.*;
+import java.awt.*;
 
 public class RegistrationController {
 
@@ -17,20 +19,21 @@ public class RegistrationController {
     @FXML
     private TextField usernameField;
     @FXML
-    private ChoiceBox role;
-
+    private Text welcome;
     @FXML
     public void initialize() {
-        role.getItems().addAll("Client", "Admin");
+
     }
 
     @FXML
     public void handleRegisterAction() {
         try {
-            UserService.addUser(usernameField.getText(), passwordField.getText(), (String) role.getValue());
+            UserService.addUser(usernameField.getText(), passwordField.getText());
             registrationMessage.setText("Account created successfully!");
         } catch (UsernameAlreadyExistsException e) {
             registrationMessage.setText(e.getMessage());
         }
     }
+
+
 }

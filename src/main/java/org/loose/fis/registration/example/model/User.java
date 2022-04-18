@@ -9,10 +9,10 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password, String role) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.role = role;
+
     }
 
     public String getUsername() {
@@ -48,14 +48,15 @@ public class User {
 
         if (!username.equals(user.username)) return false;
         if (!password.equals(user.password)) return false;
-        return role.equals(user.role);
+
+        return false;
     }
 
     @Override
     public int hashCode() {
         int result = username.hashCode();
         result = 31 * result + password.hashCode();
-        result = 31 * result + role.hashCode();
+
         return result;
     }
 
@@ -64,7 +65,6 @@ public class User {
         return "UserDTO{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
                 '}';
     }
 }
