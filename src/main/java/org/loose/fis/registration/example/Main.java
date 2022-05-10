@@ -1,6 +1,7 @@
 package org.loose.fis.registration.example;
 
 import javafx.application.Application;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.BoundingBox;
 import javafx.geometry.Bounds;
@@ -10,21 +11,26 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.loose.fis.registration.example.services.UserService;
 
+import javax.swing.event.ChangeListener;
+import java.util.Objects;
+
 public class Main extends Application {
 
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        UserService.loadUsersFromFile();
 
+        UserService.loadUsersFromFile();
         //Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
 
-        Scene scene = new Scene(FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml")));
+        Scene scene = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("register.fxml"))));
         primaryStage.setScene(scene);
         //primaryStage.setTitle("Registration Example");
-        primaryStage.setWidth(600);
-        primaryStage.setHeight(400);
+
+        primaryStage.setWidth(1280);
+        primaryStage.setHeight(720);
+
         primaryStage.sizeToScene();
 
         //primaryStage.setScene(new Scene(root, 600, 400));
@@ -43,16 +49,16 @@ public class Main extends Application {
         primaryStage.setMinHeight(prefBounds.getHeight() + deltaH);
 
         primaryStage.widthProperty().addListener((o, oldValue, newValue)->{
-            if(newValue.intValue() < 600.0 ) {
+            if(newValue.intValue() < 1280.0 ) {
                 primaryStage.setResizable(false);
-                primaryStage.setWidth(600);
+              //  primaryStage.setWidth(1280);
                 primaryStage.setResizable(true);
             }
         });
         primaryStage.heightProperty().addListener((o, oldValue, newValue)->{
-            if(newValue.intValue() < 400.0 ) {
+            if(newValue.intValue() < 720.0 ) {
                 primaryStage.setResizable(false);
-                primaryStage.setHeight(400);
+               // primaryStage.setHeight(720);
                 primaryStage.setResizable(true);
             }
         });

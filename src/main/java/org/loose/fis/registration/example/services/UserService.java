@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
 import org.loose.fis.registration.example.exceptions.CouldNotWriteUsersException;
 import org.loose.fis.registration.example.exceptions.UsernameAlreadyExistsException;
+import org.loose.fis.registration.example.exceptions.UsernameOrPasswordIncorrectException;
 import org.loose.fis.registration.example.model.User;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class UserService {
     public static void loadUsersFromFile() throws IOException {
 
         if (!Files.exists(USERS_PATH)) {
-            FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("users.json"), USERS_PATH.toFile());
+            FileUtils.copyURLToFile(Objects.requireNonNull(UserService.class.getClassLoader().getResource("users.json")), USERS_PATH.toFile());
         }
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -37,6 +38,21 @@ public class UserService {
         checkUserDoesNotAlreadyExist(username);
         users.add(new User(username, encodePassword(username, password)));
         persistUsers();
+    }
+
+    public static void checkPassword(String username, String password) throws UsernameOrPasswordIncorrectException {
+        int ok1=0;
+        for (User user : users) {
+
+            //if(user.verify(username,encodePassword(username, password))==true)
+            if(Objects.equals(username, user.getUsername()) && Objects.equals(encodePassword(username,password),user.getPassword()))
+            ok1=1;
+
+
+        }
+        if(ok1==0)
+        throw new UsernameOrPasswordIncorrectException();
+        //persistUsers();
     }
 
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {

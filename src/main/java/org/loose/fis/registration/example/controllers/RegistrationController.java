@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.loose.fis.registration.example.exceptions.UsernameAlreadyExistsException;
 import org.loose.fis.registration.example.services.UserService;
+import org.loose.fis.registration.example.exceptions.UsernameOrPasswordIncorrectException;
 import javax.swing.*;
 import java.awt.*;
 
@@ -35,5 +36,15 @@ public class RegistrationController {
         }
     }
 
+    public void handleLoginAction() {
+        try {
+            UserService.checkPassword(usernameField.getText(),passwordField.getText());
+               //daca nu exista username ul afiseaza urmatorul rand
+                registrationMessage.setText("Logged in!");
+        } catch (UsernameOrPasswordIncorrectException e) {
+            registrationMessage.setText(e.getMessage());
+            //registrationMessage.setText("parola sau username incorect");
+        }
+    }
 
 }

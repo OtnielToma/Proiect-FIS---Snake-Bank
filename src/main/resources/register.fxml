@@ -4,77 +4,120 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane minHeight="400.0" minWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.registration.example.controllers.RegistrationController">
-   <children>
-      <GridPane alignment="CENTER" focusTraversable="true" hgap="10" layoutX="124.4000015258789" vgap="10" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
-          <padding>
-              <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-          </padding>
-         <ImageView disable="true" fitHeight="275.0" fitWidth="400.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" scaleX="3.0" scaleY="3.0" scaleZ="3.0" translateX="250.0" translateY="200.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-            <image>
-               <Image url="@background.jpg" />
-            </image>
-            <viewport>
-               <Rectangle2D height="1080.0" width="1920.0" />
-            </viewport>
-            <cursor>
-               <Cursor fx:constant="DEFAULT" />
-            </cursor>
-            <GridPane.margin>
-               <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-            </GridPane.margin>
-         </ImageView>
-         <Label text="WELCOME TO SNAKE BANK!" textFill="WHITE" translateX="80.0" translateY="-50.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-            <font>
-               <Font name="Franklin Gothic Medium" size="30.0" />
-            </font>
-            <cursor>
-               <Cursor fx:constant="NONE" />
-            </cursor>
-            <effect>
-               <BoxBlur iterations="0" />
-            </effect>
-         </Label>
-      
-          <Label text="Username:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-      
-          <TextField fx:id="usernameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      
-          <Label text="Password:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-      
-          <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      
-          <Text fx:id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-          <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
-              <Button onAction="#handleRegisterAction" style="-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: #000000; -fx-border-radius: 100;" text="Register">
-               <font>
-                  <Font name="Franklin Gothic Medium Italic" size="12.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" style="-fx-background-radius: 100; -fx-background-color: white; -fx-border-radius: 100; -fx-border-color: #000000;" text="Log in">
-               <font>
-                  <Font name="Franklin Gothic Medium Italic" size="12.0" />
-               </font>
-            </Button>
-          </HBox>
-         <columnConstraints>
-            <ColumnConstraints />
-            <ColumnConstraints />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
-      </GridPane>
-   </children>
+<AnchorPane minHeight="720" minWidth="1280" prefHeight="720.0" prefWidth="1280.0"
+            style="-fx-background-image: url(background.jpg); -fx-background-repeat: no-repeat; -fx-background-size: cover; -fx-background-position: center;"
+            xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.loose.fis.registration.example.controllers.RegistrationController">
+
+
+    <GridPane alignment="CENTER" focusTraversable="true" hgap="10" layoutX="124.4000015258789"
+              style="-fx-alignment: center;" vgap="10" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+              AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+
+        <padding>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+        </padding>
+
+        <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-alignment: center;" text="WELCOME TO SNAKE BANK!"
+               textAlignment="CENTER" textFill="WHITE" translateY="-80.0" GridPane.columnSpan="2147483647">
+          <font>
+              <Font name="Franklin Gothic Medium" size="50.0"/>
+          </font>
+          <cursor>
+              <Cursor fx:constant="NONE"/>
+          </cursor>
+          <effect>
+              <BoxBlur iterations="0"/>
+          </effect>
+          <GridPane.margin>
+              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+          </GridPane.margin>
+        </Label>
+
+        <Label alignment="CENTER" style="-fx-alignment: center;" text="Username:" textFill="WHITE"
+               GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+          <font>
+              <Font name="Franklin Gothic Medium" size="20.0"/>
+          </font>
+        </Label>
+
+        <TextField fx:id="usernameField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+          <font>
+              <Font name="Franklin Gothic Medium" size="18.0"/>
+          </font>
+          <GridPane.margin>
+              <Insets right="80.0"/>
+          </GridPane.margin>
+        </TextField>
+
+        <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-alignment: center;" text="Password:"
+               textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="0" GridPane.halignment="CENTER"
+               GridPane.rowIndex="2">
+          <font>
+              <Font name="Franklin Gothic Medium" size="20.0"/>
+          </font>
+        </Label>
+
+        <PasswordField fx:id="passwordField" alignment="CENTER" GridPane.columnIndex="1"
+                       GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
+          <font>
+              <Font name="Franklin Gothic Medium" size="18.0"/>
+          </font>
+          <GridPane.margin>
+              <Insets right="80.0"/>
+          </GridPane.margin>
+        </PasswordField>
+
+        <Text fx:id="registrationMessage" fill="WHITE" focusTraversable="true" stroke="WHITE" strokeWidth="0.5"
+              style="-fx-text-alignment: center;" textAlignment="CENTER" textOrigin="CENTER"
+              wrappingWidth="400.65283203125" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER"
+              GridPane.rowIndex="8">
+          <font>
+              <Font name="Franklin Gothic Medium" size="15.0"/>
+          </font>
+          <cursor>
+              <Cursor fx:constant="NONE"/>
+          </cursor>
+        </Text>
+        <HBox alignment="bottom_right" spacing="10.0" style="-fx-alignment: center;" GridPane.columnSpan="2147483647"
+              GridPane.rowIndex="6">
+            <Button onAction="#handleRegisterAction"
+                    style="-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: #000000; -fx-border-radius: 100;"
+                    text="Register">
+                <font>
+                    <Font name="Franklin Gothic Medium Italic" size="15.0"/>
+                </font>
+          </Button>
+          <Button mnemonicParsing="false" onAction="#handleLoginAction"
+                  style="-fx-background-radius: 100; -fx-background-color: white; -fx-border-radius: 100; -fx-border-color: #000000;"
+                  text="Log in">
+              <font>
+                  <Font name="Franklin Gothic Medium Italic" size="15.0"/>
+              </font>
+          </Button>
+          <GridPane.margin>
+              <Insets/>
+          </GridPane.margin>
+        </HBox>
+        <columnConstraints>
+          <ColumnConstraints maxWidth="322.0" minWidth="97.80000000000001" prefWidth="316.0"/>
+          <ColumnConstraints maxWidth="516.5999999999999" minWidth="293.19999999999993"
+                             prefWidth="299.19999999999993"/>
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+          <RowConstraints/>
+        </rowConstraints>
+    </GridPane>
 </AnchorPane>
