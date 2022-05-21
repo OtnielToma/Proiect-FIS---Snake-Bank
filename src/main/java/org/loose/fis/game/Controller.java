@@ -120,6 +120,24 @@ public class Controller <speed> implements Initializable{
 
     }
 
+    @FXML
+    void moveSquareKeyPressed(KeyEvent event) {
+
+        if(canChangeDirection){
+            if (event.getCode().equals(KeyCode.W) && direction != Direction.DOWN) {
+                direction = Direction.UP;
+            } else if (event.getCode().equals(KeyCode.S) && direction != Direction.UP) {
+                direction = Direction.DOWN;
+            } else if (event.getCode().equals(KeyCode.A) && direction != Direction.RIGHT) {
+                direction = Direction.LEFT;
+            } else if (event.getCode().equals(KeyCode.D) && direction != Direction.LEFT) {
+                direction = Direction.RIGHT;
+            }
+            canChangeDirection = false;
+        }
+    }
+
+
     private void moveSnakeHead(Rectangle snakeHead) {
         if (direction.equals(Direction.RIGHT)) {
             xPos = xPos + snakeSize;
@@ -179,7 +197,7 @@ public class Controller <speed> implements Initializable{
             for (int i = size - snakeBody.size(); i < size; i++) {
                 if(positions.get(size).getXPos() == (positions.get(i).getXPos())
                         && positions.get(size).getYPos() == (positions.get(i).getYPos())){
-                    System.out.println("Hit");
+
                     return true;
                 }
             }
