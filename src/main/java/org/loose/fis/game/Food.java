@@ -1,6 +1,5 @@
 package org.loose.fis.game;
 
-
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
@@ -30,6 +29,22 @@ public class Food {
 
     public Position getPosition() {
         return position;
+    }
+
+    public void getRandomSpotForFood()
+    {
+        int positionX = random.nextInt(12);
+        int positionY = random.nextInt(12);
+        rectangle.setX(positionX * size);
+        rectangle.setY(positionY * size);
+
+        position.setXPos(positionX * size);
+        position.setYPos(positionY * size);
+    }
+
+    public void moveFood()
+    {
+        getRandomSpotForFood();
     }
 
 }
