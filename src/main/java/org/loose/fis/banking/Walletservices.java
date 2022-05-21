@@ -25,6 +25,16 @@ public class Walletservices {
         persistWallets();
     }
 
+    public static Wallet getWallet(String username){
+        for (Wallet w: wallets) {
+            if(w.getUsername().equals(username)){
+                return w;
+            }
+        }
+
+        throw new CouldNotFindWalletException();
+    }
+
     private static void persistWallets() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
