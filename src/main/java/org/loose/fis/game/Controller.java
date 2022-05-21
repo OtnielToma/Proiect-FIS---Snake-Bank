@@ -93,6 +93,9 @@ public class Controller <speed> implements Initializable{
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
 
+
+        Image img1 = new Image("/game/tail.jpg");
+        snakeTail_1.setFill(new ImagePattern(img1));
         snakeBody.add(snakeTail_1);
 
         anchorPane.getChildren().addAll(snakeHead, snakeTail_1);
@@ -167,6 +170,9 @@ public class Controller <speed> implements Initializable{
                 snakeBody.get(1).getX() + xPos + snakeSize,
                 snakeBody.get(1).getY() + yPos,
                 snakeSize, snakeSize);
+        Image img = new Image("/game/tail.jpg"); //atribuire resursa
+        snakeTail.setFill(new ImagePattern(img));
+
         snakeBody.add(snakeTail);
         anchorPane.getChildren().add(snakeTail);
     }
