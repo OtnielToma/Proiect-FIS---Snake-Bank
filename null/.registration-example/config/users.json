@@ -1,0 +1,106 @@
+[ {
+  "username" : "Marcel",
+  "password" : "t�^A���^�g\r�@۔d���z�\t,d��{�\u0002H,)@!n��}�ն'K��M[H1�\\O_.b�����_�|�",
+  "lastName" : null,
+  "firstName" : null,
+  "gender" : null,
+  "date" : null
+}, {
+  "username" : "yoyo",
+  "password" : "N�{�\u000B�(\u0014(=\u0015&\u0002k�c��CVl��X�a�^�R,���\u001D��Y�Y��`�N6-��0����-R��\u0018k�^�",
+  "lastName" : null,
+  "firstName" : null,
+  "gender" : null,
+  "date" : null
+}, {
+  "username" : "of",
+  "password" : "�R��!\u0007'�\u0014�d0�R�Q\u0013�#����vx9��v�������T\u0016Yq���5\u001F�V7�|~\rs�>\u0012�Bٟ�ُ",
+  "lastName" : null,
+  "firstName" : null,
+  "gender" : null,
+  "date" : null
+}, {
+  "username" : "maria",
+  "password" : "=�vX�=o�[�\u0019�+\\�ɘj��P+�˿R�\u000F\u0007�\rRf\u001A�tF�9$��C�\u001CT��{���/X~o��-�/~�",
+  "lastName" : null,
+  "firstName" : null,
+  "gender" : null,
+  "date" : null
+}, {
+  "username" : "Otniel",
+  "password" : "���I^i�^k$?��to\u0005X�Si\u0016P\u0001�ؿ�-u+E��3ccK;韽�G:���p\u000B��\u0013,�Սz�\u0014�ğC",
+  "lastName" : null,
+  "firstName" : null,
+  "gender" : null,
+  "date" : null
+}, {
+  "username" : "da",
+  "password" : "�t�\u0017�|�в�\f��\u0018��~�r�|{��[���\u0000t�1f\rJD܍:\u0005L/I�{3�+��-o7�q��\u0017�U�\b",
+  "lastName" : null,
+  "firstName" : null,
+  "gender" : null,
+  "date" : null
+}, {
+  "username" : "otniel",
+  "password" : "�PN\f�\u000E�x�Y��\r|Jކ9�ON��R\u001F;��[ڵ*n��1��-�X�;�C\u001FD�Z߼��\u0000��\u001D[\u0013۫\u0015��",
+  "lastName" : null,
+  "firstName" : null,
+  "gender" : null,
+  "date" : null
+}, {
+  "username" : "oti",
+  "password" : "�X\u0017TQ�@��\rd�s�\u0010�g��*�\u0005����*�,�ېB���i7�,�[\u0014H�`s��y��\u000EL~Γ��1t<��",
+  "lastName" : null,
+  "firstName" : null,
+  "gender" : null,
+  "date" : null
+}, {
+  "username" : "312312",
+  "password" : "Oܻ;��\u0003\u0011�ׁ���\u001B\u0002Kb��J9r08����\u0002�_�r\u0013+㪳�\u0003�&z ��\f�暯U�N�У�\u001B\fݥ",
+  "lastName" : null,
+  "firstName" : null,
+  "gender" : null,
+  "date" : null
+}, {
+  "username" : "312312312",
+  "password" : "��M�q�^�R�E���ё�\\����H\u001B7g=���\u001A�X�\u0013��p-�����{\u0014O�%y=�(��v��|%9��",
+  "lastName" : "321312",
+  "firstName" : "12312321",
+  "gender" : null,
+  "date" : "10/5/2022"
+}, {
+  "username" : "111112312",
+  "password" : "\u0010���O��ѡ�H\u0015*��v�Y��\u001A���f6��\u0001\u0019����*�L�M\u0016ݝ\u0003���l�Sb\u0005�]�-Q�+e��C�",
+  "lastName" : "123123",
+  "firstName" : "12312",
+  "gender" : null,
+  "date" : "13/5/2022"
+}, {
+  "username" : "danyeluzz",
+  "password" : "�&�F�e�3m�2�F�y9�\f\t�j�x�K�v��Pᴞ����~l�\u0015&hl�:7\u0018�����>+yg`6\u0017�",
+  "lastName" : "Daniel",
+  "firstName" : "Toma",
+  "gender" : "Male",
+  "date" : "19/7/2001"
+}, {
+  "username" : "riko",
+  "password" : "xf�\u00014U�|~&:��\u001E\u001F���ya�>Տf����l�(�s(id@do<J��k���\ri�4\u0000K�\u0019�\u001F��MM�",
+  "lastName" : "Riko",
+  "firstName" : "Mikostas",
+  "gender" : "Male",
+  "date" : "10/5/2004"
+}, {
+  "username" : "",
+  "password" : "�YI�\r\u0019k3\u0019!�)AQ�g�A���\u001C�:�@��鼎=]����\u000B�\u0011�'Ɇ�\u0007 ��[���哝+��9�\u001D�",
+  "lastName" : "312",
+  "firstName" : "321",
+  "gender" : "Male",
+  "date" : "4/5/2022"
+}, {
+  "username" : "3123123",
+  "password" : "�YI�\r\u0019k3\u0019!�)AQ�g�A���\u001C�:�@��鼎=]����\u000B�\u0011�'Ɇ�\u0007 ��[���哝+��9�\u001D�",
+  "lastName" : "312",
+  "firstName" : "321",
+  "gender" : "Male",
+  "date" : "4/5/2022"
+} ]

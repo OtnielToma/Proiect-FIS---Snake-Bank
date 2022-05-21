@@ -23,6 +23,8 @@ public class Main extends Application {
 
         primaryStage.setScene(scene);
 
+        primaryStage.setTitle("Snake Bank");
+        primaryStage.getIcons().add(new Image("/introduction/Logo.png"));
 
 
         primaryStage.setWidth(1280);

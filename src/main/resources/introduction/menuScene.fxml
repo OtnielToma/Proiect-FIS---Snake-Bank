@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane minHeight="720" minWidth="1280" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-image: url(introduction/background.jpg); -fx-background-repeat: no-repeat; -fx-background-size: cover; -fx-background-position: center;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.introduction.controllers.RegistrationController">
+
+
+    <GridPane alignment="CENTER" focusTraversable="true" hgap="10" layoutX="124.4000015258789" style="-fx-alignment: center;" vgap="10" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+
+        <padding>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+        </padding>
+
+        <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-alignment: center;" text="Choose your function!" textAlignment="CENTER" textFill="WHITE" translateY="-80.0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER">
+            <font>
+                <Font name="Franklin Gothic Medium" size="50.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="NONE" />
+            </cursor>
+            <effect>
+                <BoxBlur iterations="0" />
+            </effect>
+            <GridPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </GridPane.margin>
+        </Label>
+        <HBox alignment="bottom_right" spacing="10.0" style="-fx-alignment: center;" GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
+            <Button style="-fx-background-color: white; -fx-background-radius: 100; -fx-border-radius: 100; -fx-border-color: #000000;" text="Banking">
+                <font>
+                    <Font name="Franklin Gothic Medium Italic" size="20.0" />
+                </font>
+                <cursor>
+                    <Cursor fx:constant="DEFAULT" />
+                </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#switchToMiningScene" style="-fx-background-radius: 100; -fx-background-color: white; -fx-border-radius: 100; -fx-border-color: #000000;" text="Mining">
+                <font>
+                    <Font name="Franklin Gothic Medium Italic" size="20.0" />
+                </font>
+            </Button>
+            <GridPane.margin>
+                <Insets />
+            </GridPane.margin>
+        </HBox>
+      <Button mnemonicParsing="false" onAction="#switchToLoginScene" style="-fx-background-color: transparent;" text="Log Out" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+         <font>
+            <Font name="Franklin Gothic Medium" size="18.0" />
+         </font>
+      </Button>
+        <columnConstraints>
+            <ColumnConstraints maxWidth="322.0" minWidth="97.80000000000001" prefWidth="316.0" />
+            <ColumnConstraints maxWidth="322.0" minWidth="97.80000000000001" prefWidth="316.0" />
+         <ColumnConstraints maxWidth="516.5999999999999" minWidth="293.19999999999993" prefWidth="299.19999999999993" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         <RowConstraints />
+        </rowConstraints>
+    </GridPane>
+</AnchorPane>
