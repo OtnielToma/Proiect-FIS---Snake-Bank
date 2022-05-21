@@ -32,7 +32,7 @@
             </GridPane.margin>
         </Label>
         <HBox alignment="bottom_right" spacing="10.0" style="-fx-alignment: center;" GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
-            <Button style="-fx-background-color: white; -fx-background-radius: 100; -fx-border-radius: 100; -fx-border-color: #000000;" text="Banking">
+            <Button onAction="#switchToBankingScene" style="-fx-background-color: white; -fx-background-radius: 100; -fx-border-radius: 100; -fx-border-color: #000000;" text="Banking">
                 <font>
                     <Font name="Franklin Gothic Medium Italic" size="20.0" />
                 </font>

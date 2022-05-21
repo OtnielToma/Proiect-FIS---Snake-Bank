@@ -115,6 +115,14 @@ public class RegistrationController {
             stage1.show();
     }
 
+    public void switchToBankingScene(ActionEvent event) throws IOException {
+        root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("banking/banking.fxml")));
+        stage1 = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene1 = new Scene(root1);
+        stage1.setScene(scene1);
+        stage1.show();
+    }
+
     public boolean handleLoginAction() {
         try {
             UserService.checkPassword(usernameField.getText(),passwordField.getText());
