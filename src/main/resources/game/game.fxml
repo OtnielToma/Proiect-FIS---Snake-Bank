@@ -35,7 +35,7 @@
                <Insets top="15.0" />
            </GridPane.margin>
         </Label>
-        <Button mnemonicParsing="false" prefHeight="89.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 900; -fx-border-color: transparent; -fx-border-radius: 900; -fx-shape: Circle;" text="ⓘ" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+        <Button mnemonicParsing="false" onMousePressed="#enter" onMouseReleased="#exit" prefHeight="89.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-background-radius: 900; -fx-border-color: transparent; -fx-border-radius: 900; -fx-shape: Circle;" text="ⓘ" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
            <font>
                <Font size="34.0" />
            </font>

@@ -253,5 +253,10 @@ public class Controller <speed> implements Initializable{
         instructions.setVisible(false);
         keyboard.setVisible(false);
     }
+    @FXML
+    void enter(){
+        instructions.setVisible(true);
+        keyboard.setVisible(true);
+    }
 
 }
