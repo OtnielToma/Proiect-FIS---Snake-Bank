@@ -1,5 +1,6 @@
 package org.loose.fis.introduction.controllers;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -52,7 +53,7 @@ public class RegistrationController {
 
     @FXML
     public void initialize() {
-
+        gender.setItems(FXCollections.observableArrayList("Male","Female"));
 
     }
 
