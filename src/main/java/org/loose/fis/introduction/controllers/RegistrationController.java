@@ -1,6 +1,5 @@
 package org.loose.fis.introduction.controllers;
 
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,8 +14,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.loose.fis.introduction.exceptions.UsernameAlreadyExistsException;
 import org.loose.fis.introduction.exceptions.UsernameOrPasswordIncorrectException;
+import org.loose.fis.introduction.exceptions.UsernameAlreadyExistsException;
 import org.loose.fis.introduction.services.UserService;
 
 import java.io.IOException;
@@ -108,7 +107,7 @@ public class RegistrationController {
     }
 
     public void switchToMiningScene(ActionEvent event) throws IOException {
-            root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("")));
+            root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("game/game.fxml")));
             stage1 = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene1 = new Scene(root1);
             stage1.setScene(scene1);
