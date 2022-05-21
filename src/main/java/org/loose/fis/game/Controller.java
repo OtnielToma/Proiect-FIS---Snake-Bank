@@ -246,8 +246,12 @@ public class Controller <speed> implements Initializable{
         Scene scene1 = new Scene(root1);
         stage1.setScene(scene1);
         stage1.show();
+    }
 
-
+    @FXML
+    void exit(){
+        instructions.setVisible(false);
+        keyboard.setVisible(false);
     }
 
 }
