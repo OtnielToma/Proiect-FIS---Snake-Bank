@@ -1,12 +1,14 @@
-package org.loose.fis.registration.example.services;
+package org.loose.fis.introduction.services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.scene.control.DatePicker;
 import org.apache.commons.io.FileUtils;
-import org.loose.fis.registration.example.exceptions.CouldNotWriteUsersException;
-import org.loose.fis.registration.example.exceptions.UsernameAlreadyExistsException;
-import org.loose.fis.registration.example.exceptions.UsernameOrPasswordIncorrectException;
-import org.loose.fis.registration.example.model.User;
+import org.loose.fis.introduction.exceptions.CouldNotWriteUsersException;
+import org.loose.fis.introduction.exceptions.UsernameAlreadyExistsException;
+import org.loose.fis.introduction.exceptions.UsernameOrPasswordIncorrectException;
+import org.loose.fis.introduction.model.User;
+import org.loose.fis.introduction.services.FileSystemService;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -14,6 +16,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -34,9 +38,9 @@ public class UserService {
         });
     }
 
-    public static void addUser(String username, String password) throws UsernameAlreadyExistsException {
+    public static void addUser(String username, String password,String lastName, String firstName, String gender, String date) throws UsernameAlreadyExistsException {
         checkUserDoesNotAlreadyExist(username);
-        users.add(new User(username, encodePassword(username, password)));
+        users.add(new User(username, encodePassword(username, password), lastName, firstName, gender, date));
         persistUsers();
     }
 
