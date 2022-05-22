@@ -1,8 +1,7 @@
 [ {
-    "username" : "Bondok",
-    "funds" : 0
-  },
-  {
-    "username" : "Sava01",
-    "funds" : 0
-  } ]
+  "username" : "Bondok",
+  "funds" : 0
+}, {
+  "username" : "Sava01",
+  "funds" : 1
+} ]

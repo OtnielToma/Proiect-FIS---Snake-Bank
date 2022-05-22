@@ -20,7 +20,6 @@ public class Walletservices {
 
 
     public static void addWallets(String username) {
-
         wallets.add(new Wallet(username));
         persistWallets();
     }
@@ -52,6 +51,18 @@ public class Walletservices {
         ObjectMapper objectMapper = new ObjectMapper();
 
         wallets = objectMapper.readValue(WALLETS_PATH.toFile(), new TypeReference<List<Wallet>>() {});
+    }
+
+    public static void updateWallet(Wallet newWallet){
+        for (Wallet w:wallets) {
+            if(newWallet.getUsername().equals(w.getUsername())){
+                wallets.remove(w);
+                wallets.add(newWallet);
+                persistWallets();
+                return;
+            }
+        }
+        throw new CouldNotFindWalletException();
     }
 }
 
