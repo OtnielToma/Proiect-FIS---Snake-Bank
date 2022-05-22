@@ -15,6 +15,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.loose.fis.banking.Walletservices;
+import org.loose.fis.introduction.Main;
 import org.loose.fis.introduction.exceptions.UsernameOrPasswordIncorrectException;
 import org.loose.fis.introduction.exceptions.UsernameAlreadyExistsException;
 import org.loose.fis.introduction.services.UserService;
@@ -64,6 +66,7 @@ public class RegistrationController {
             if(usernameField.getText().length()>=4 && passwordField.getText().length()>=8)
             {
                 UserService.addUser(usernameField.getText(), passwordField.getText(),lastName.getText(),firstName.getText(), (String) gender.getSelectionModel().getSelectedItem(),""+date.getValue().getDayOfMonth()+"/"+date.getValue().getMonthValue()+"/"+date.getValue().getYear());
+                Walletservices.addWallets(usernameField.getText());
 
             registrationMessage.setText("Account created successfully!");}
             else
@@ -115,13 +118,21 @@ public class RegistrationController {
             stage1.show();
     }
 
+    public void switchToBankingScene(ActionEvent event) throws IOException {
+        root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("banking/banking.fxml")));
+        stage1 = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene1 = new Scene(root1);
+        stage1.setScene(scene1);
+        stage1.show();
+    }
+
     public boolean handleLoginAction() {
         try {
             UserService.checkPassword(usernameField.getText(),passwordField.getText());
                //daca nu exista username ul afiseaza urmatorul rand
              registrationMessage.setText("Logged in!");
+            Main.setUsername(usernameField.getText());
             return true;
-
         } catch (UsernameOrPasswordIncorrectException e) {
 
             registrationMessage.setText(e.getMessage());return false;

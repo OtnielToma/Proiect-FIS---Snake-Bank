@@ -22,16 +22,22 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.loose.fis.banking.CouldNotFindWalletException;
+import org.loose.fis.banking.Wallet;
+import org.loose.fis.banking.Walletservices;
+import org.loose.fis.introduction.Main;
+import org.loose.fis.introduction.services.FileSystemService;
 
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class Controller <speed> implements Initializable{
+public class Controller <speed>  implements Initializable{
 
     private final Double snakeSize = 50.;
     private Rectangle snakeHead;
@@ -56,7 +62,7 @@ public class Controller <speed> implements Initializable{
     @FXML
     private Label score;
 
-    private int Score=0;
+    private float Score=0;
 
 
     Timeline timeline;
@@ -68,7 +74,7 @@ public class Controller <speed> implements Initializable{
         startButton.setOpacity(0); //dupa apasarea butonului acesta dispare
         Score=0;//scorul se reseteaza
         String txt;
-        txt="Score: "+Score;
+        txt="Score: " + String.format("%d",(int)Score);
         score.setText(txt);
 
         for (Rectangle snake : snakeBody) {
@@ -177,6 +183,12 @@ public class Controller <speed> implements Initializable{
         anchorPane.getChildren().add(snakeTail);
     }
 
+    public void addFunds(){
+        Wallet userWallet = Walletservices.getWallet(Main.getUsername());
+        userWallet.setfunds(userWallet.getfunds() + (int) Math.floor(Score/10));
+        Walletservices.updateWallet(userWallet);
+    }
+
     public boolean checkIfGameIsOver(Rectangle snakeHead) {
         double deltaW = anchorPane.getWidth() ;
         double deltaH = anchorPane.getHeight() ;
@@ -185,12 +197,18 @@ public class Controller <speed> implements Initializable{
         {
             startButton.setOpacity(100);
             startButton.setDisable(false);
+
+            addFunds();
+
             return true;
         } else
             if(snakeHitItSelf())
         {
             startButton.setOpacity(100);
             startButton.setDisable(false);
+
+            addFunds();
+
             return true;
         }
 
@@ -215,7 +233,7 @@ public class Controller <speed> implements Initializable{
         if(xPos + snakeHead.getX() == food.getPosition().getXPos() && yPos + snakeHead.getY() == food.getPosition().getYPos()){
             Score=Score+1;
             String txt;
-            txt="Score: "+Score;
+            txt="Score: "+String.format("%d",(int)Score);
             score.setText(txt);
             foodCantSpawnInsideSnake();
             addSnakeTail();
