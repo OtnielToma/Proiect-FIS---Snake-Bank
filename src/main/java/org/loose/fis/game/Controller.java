@@ -17,22 +17,17 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import org.loose.fis.banking.CouldNotFindWalletException;
 import org.loose.fis.banking.Wallet;
 import org.loose.fis.banking.Walletservices;
-import org.loose.fis.introduction.Main;
-import org.loose.fis.introduction.services.FileSystemService;
+import org.loose.fis.authentication.Main;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -67,12 +62,16 @@ public class Controller implements Initializable{
     private ImageView Invincibility;
     @FXML
     public Button closeButton;
+    @FXML
+    private GridPane ChooseSkin;
     private int Score=0;
 
 
     Timeline timeline;
 
     private boolean canChangeDirection;
+
+
 
     @FXML
     void start(MouseEvent event) {
@@ -103,14 +102,13 @@ public class Controller implements Initializable{
 
         snakeBody.add(snakeHead);
 
-        Image img = new Image("/game/head.jpg"); //atribuire resursa
-        snakeHead.setFill(new ImagePattern(img));
+        snakeHead.setFill(new ImagePattern(imgHead));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
 
 
-        Image img1 = new Image("/game/tail.jpg");
-        snakeTail_1.setFill(new ImagePattern(img1));
+
+        snakeTail_1.setFill(new ImagePattern(imgTail));
         snakeBody.add(snakeTail_1);
 
         anchorPane.getChildren().addAll(snakeHead, snakeTail_1);
@@ -127,7 +125,57 @@ public class Controller implements Initializable{
 
     double deltaW ;
     double deltaH ;
-    Image img = new Image("/game/BoostedHead.jpg");
+    Image imgHead = new Image("/game/head.jpg");
+    Image imgBoostedTail = new Image("/game/BoostedTail.jpg");
+    String url = new String("/game/BoostedHeadPreview.jpg");
+    String url2 = new String("/game/head.jpg");
+    String urlTail = new String("/game/tail.jpg");
+    Image img = new Image(url);
+    Image imgTail=new Image(urlTail);
+
+    @FXML
+    public void selectHead1(){
+        imgHead = new Image("/game/head.jpg");
+        imgTail = new Image("/game/tail.jpg");
+        ChooseSkin.setVisible(false);
+        ChooseSkin.toBack();
+    }
+    @FXML
+    public void selectHead2() {
+        imgHead = new Image("/game/head2.jpg");
+        imgTail = new Image("/game/tail.jpg");
+        ChooseSkin.setVisible(false);
+        ChooseSkin.toBack();
+    }
+    @FXML
+    public void selectHead3(){
+        imgHead = new Image("/game/head6.jpg");
+        imgTail = new Image("/game/tail3.jpg");
+        ChooseSkin.setVisible(false);
+        ChooseSkin.toBack();
+    }
+    @FXML
+    public void selectHead4(){
+        imgHead = new Image("/game/head3.jpg");
+        imgTail = new Image("/game/tail3.jpg");
+        ChooseSkin.setVisible(false);
+        ChooseSkin.toBack();
+    }
+    @FXML
+    public void selectHead5() {
+        imgHead = new Image("/game/head4.jpg");
+        imgTail = new Image("/game/tail6.jpg");
+        ChooseSkin.setVisible(false);
+        ChooseSkin.toBack();
+    }
+    @FXML
+    public void selectHead6(){
+        imgHead = new Image("/game/head5.jpg");
+        imgTail = new Image("/game/tail5.jpg");
+        ChooseSkin.setVisible(false);
+        ChooseSkin.toBack();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -148,6 +196,9 @@ public class Controller implements Initializable{
             {
                 String txt1;
                 snakeHead.setFill(new ImagePattern(img));
+                for (int i = 1; i < snakeBody.size(); i++) {
+                    snakeBody.get(i).setFill(new ImagePattern(imgBoostedTail));
+                }
                 Invincibility.setVisible(true);
 
                 new java.util.Timer().schedule(
@@ -156,8 +207,10 @@ public class Controller implements Initializable{
                             public void run() {
                                 Invincibility.setVisible(false);
                                 ExtraFoodHasBeenEaten=false;
-                                Image img = new Image("/game/head.jpg");
-                                snakeHead.setFill(new ImagePattern(img));
+                                snakeHead.setFill(new ImagePattern(imgHead));
+                                for (int i = 1; i < snakeBody.size(); i++) {
+                                    snakeBody.get(i).setFill(new ImagePattern(imgTail));
+                                }
                             }
                         },
                         5000
@@ -174,11 +227,13 @@ public class Controller implements Initializable{
 
 
         }));
-        food = new Food(-50,-50,anchorPane,snakeSize);
+        food = new Food(-100,-100,anchorPane,snakeSize);
         extraFood=new ExtraFood(-50,-50,anchorPane,snakeSize);
 
 
     }
+
+
 
     @FXML
     void moveSquareKeyPressed(KeyEvent event) {
@@ -219,7 +274,7 @@ public class Controller implements Initializable{
         snakeTail.setTranslateX(xPos);
         snakeTail.setTranslateY(yPos);
     }
-    Image img1 = new Image("/game/tail.jpg");//daca declar img1 local in addSnakeTail apare un bug care la a 13/14 apelare a acestuia face jocul sa se opreasca
+    //daca declar img1 local in addSnakeTail apare un bug care la a 13/14 apelare a acestuia face jocul sa se opreasca
     private void addSnakeTail() {
         Rectangle rectangle = snakeBody.get(snakeBody.size() - 1);
         Rectangle snakeTail = new Rectangle(
@@ -227,7 +282,7 @@ public class Controller implements Initializable{
                 snakeBody.get(1).getY() + yPos,
                 snakeSize, snakeSize);
 
-        snakeTail.setFill(new ImagePattern(img1));
+        snakeTail.setFill(new ImagePattern(imgTail));
 
         snakeBody.add(snakeTail);
         anchorPane.getChildren().add(snakeTail);
@@ -371,11 +426,17 @@ Label money;
 
     public void backToMenuScene(ActionEvent event) throws IOException {
 
-        Parent root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("introduction/menuScene.fxml")));
+        Parent root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("authentication/menuScene.fxml")));
         Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene1 = new Scene(root1);
         stage1.setScene(scene1);
         stage1.show();
+    }
+
+    @FXML
+    void chooseSkin(ActionEvent event){
+        ChooseSkin.toFront();
+        ChooseSkin.setVisible(true);
     }
 
     @FXML

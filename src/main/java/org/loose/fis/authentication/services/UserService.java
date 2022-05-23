@@ -1,12 +1,12 @@
-package org.loose.fis.introduction.services;
+package org.loose.fis.authentication.services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
-import org.loose.fis.introduction.exceptions.CouldNotWriteUsersException;
-import org.loose.fis.introduction.exceptions.UsernameAlreadyExistsException;
-import org.loose.fis.introduction.exceptions.UsernameOrPasswordIncorrectException;
-import org.loose.fis.introduction.model.User;
+import org.loose.fis.authentication.exceptions.CouldNotWriteUsersException;
+import org.loose.fis.authentication.exceptions.UsernameAlreadyExistsException;
+import org.loose.fis.authentication.exceptions.UsernameOrPasswordIncorrectException;
+import org.loose.fis.authentication.model.User;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -14,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -92,5 +93,8 @@ public class UserService {
         return md;
     }
 
+    public static List<User> getUsers(){
+        return users;
+    }
 
 }

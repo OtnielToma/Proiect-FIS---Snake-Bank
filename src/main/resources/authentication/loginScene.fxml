@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="loginPane" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#switchToMenuSceneByEnter" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-repeat: no-repeat; -fx-background-size: cover; -fx-background-position: center; -fx-background-image: url(introduction/background.jpg);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.introduction.controllers.RegistrationController">
+<AnchorPane fx:id="loginPane" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#switchToMenuSceneByEnter" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-repeat: no-repeat; -fx-background-size: cover; -fx-background-position: center; -fx-background-image: url(authentication/background.jpg);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.authentication.controllers.RegistrationController">
 
 
    <GridPane alignment="CENTER" focusTraversable="true" hgap="10" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" scaleX="1.5" scaleY="1.5" style="-fx-alignment: center;" vgap="10">
@@ -100,12 +100,15 @@
          <RowConstraints />
       </rowConstraints>
    </GridPane>
-   <HBox prefHeight="28.0" prefWidth="1920.0" style="-fx-background-color: #666155;">
+   <HBox prefHeight="64.0" prefWidth="1920.0" style="-fx-background-color: #666155;">
       <children>
          <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeApp" style="-fx-background-color: transparent;" text="❌">
             <font>
-               <Font name="Franklin Gothic Medium" size="25.0" />
-            </font></Button>
+               <Font name="VCR OSD Mono" size="25.0" />
+            </font>
+            <HBox.margin>
+               <Insets top="10.0" />
+            </HBox.margin></Button>
       </children>
    </HBox>
 </AnchorPane>

@@ -1,4 +1,4 @@
-package org.loose.fis.introduction.exceptions;
+package org.loose.fis.authentication.exceptions;
 
 public class UsernameOrPasswordIncorrectException extends Exception{
 

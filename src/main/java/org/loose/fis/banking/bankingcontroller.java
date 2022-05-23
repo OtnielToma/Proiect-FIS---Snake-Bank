@@ -9,7 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import org.loose.fis.introduction.Main;
+import org.loose.fis.authentication.Main;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -46,11 +46,23 @@ public class bankingcontroller {
     }
 
     public void backToMenuScene(ActionEvent event) throws IOException {
-        root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("introduction/menuScene.fxml")));
+        root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("authentication/menuScene.fxml")));
         stage1 = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene1 = new Scene(root1);
         stage1.setScene(scene1);
         stage1.setResizable(false);
         stage1.show();
     }
+
+    public  void  popupAddFriend(ActionEvent event) throws IOException {
+
+        root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("banking/friends.fxml")));
+        stage1 = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene1 = new Scene(root1);
+        stage1.setScene(scene1);
+        stage1.setResizable(false);
+        stage1.show();
+
+    }
+
 }

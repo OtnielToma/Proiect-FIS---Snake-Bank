@@ -2,13 +2,9 @@ package org.loose.fis.game;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.BoundingBox;
-import javafx.geometry.Bounds;
-import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.loose.fis.introduction.services.UserService;
 
 import java.util.Objects;
 

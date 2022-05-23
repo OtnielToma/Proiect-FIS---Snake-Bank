@@ -4,9 +4,8 @@ package org.loose.fis.banking;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
-import org.loose.fis.introduction.model.User;
-import org.loose.fis.introduction.services.FileSystemService;
-import org.loose.fis.introduction.services.UserService;
+import org.loose.fis.authentication.services.FileSystemService;
+import org.loose.fis.authentication.services.UserService;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,14 +1,13 @@
-package org.loose.fis.introduction;
+package org.loose.fis.authentication;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.loose.fis.banking.Walletservices;
-import org.loose.fis.introduction.services.UserService;
+import org.loose.fis.authentication.services.UserService;
 
 import java.util.Objects;
 
@@ -24,12 +23,12 @@ public class Main extends Application {
         Walletservices.loadWalletFromFile();
         //Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
 
-        Scene scene = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("introduction/loginScene.fxml"))));
+        Scene scene = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("authentication/loginScene.fxml"))));
 
         primaryStage.setScene(scene);
 
         primaryStage.setTitle("Snake Bank");
-        primaryStage.getIcons().add(new Image("/introduction/Logo.png"));
+        primaryStage.getIcons().add(new Image("/authentication/Logo.png"));
 
 
         primaryStage.setWidth(1920);
