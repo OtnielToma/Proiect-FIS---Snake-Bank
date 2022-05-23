@@ -26,7 +26,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
-        <Button mnemonicParsing="false" prefHeight="94.0" prefWidth="400.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" onAction="#popupAddFriend" text="Add friend" textFill="#666155" translateY="-250.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.rowSpan="2147483647">
+        <Button mnemonicParsing="false" onAction="#popupAddFriend" prefHeight="94.0" prefWidth="400.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Add friend" textFill="#666155" translateY="-250.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.rowSpan="2147483647">
             <font>
                 <Font name="Franklin Gothic Medium" size="50.0" />
             </font>
@@ -66,7 +66,7 @@
             <Insets right="45.0" />
          </GridPane.margin>
         </Button>
-        <Button mnemonicParsing="false" onAction="#backToMenuScene" prefHeight="99.0" prefWidth="120.0" style="-fx-background-color: transparent;" textFill="#666155" translateY="50.0">
+        <Button mnemonicParsing="false" onAction="#backToMenuScene" prefHeight="99.0" prefWidth="120.0" style="-fx-background-color: transparent;" textFill="#666155" translateX="-100.0" translateY="10.0" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
             <graphic>
                 <ImageView fitHeight="82.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
                     <Image url="@backIcon.png" />

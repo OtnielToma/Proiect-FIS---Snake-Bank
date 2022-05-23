@@ -33,7 +33,7 @@
          </font>
       </Label>
 
-      <TextField fx:id="usernameField" style="-fx-background-radius: 100;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <TextField fx:id="usernameField" alignment="CENTER" style="-fx-background-radius: 100;" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <font>
             <Font name="Franklin Gothic Medium" size="18.0" />
          </font>
