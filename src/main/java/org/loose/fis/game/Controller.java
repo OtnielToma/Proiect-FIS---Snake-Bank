@@ -20,6 +20,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.loose.fis.banking.CouldNotFindWalletException;
@@ -75,11 +76,13 @@ public class Controller implements Initializable{
 
     @FXML
     void start(MouseEvent event) {
+
         startButton.setOpacity(0); //dupa apasarea butonului acesta dispare
         Score=0;//scorul se reseteaza
         String txt;
         txt="Score: " + String.format("%d", Score);
         score.setText(txt);
+
 
         for (Rectangle snake : snakeBody) {
             anchorPane.getChildren().remove(snake);
@@ -216,7 +219,7 @@ public class Controller implements Initializable{
         snakeTail.setTranslateX(xPos);
         snakeTail.setTranslateY(yPos);
     }
-    Image img1 = new Image("/game/tail.jpg");
+    Image img1 = new Image("/game/tail.jpg");//daca declar img1 local in addSnakeTail apare un bug care la a 13/14 apelare a acestuia face jocul sa se opreasca
     private void addSnakeTail() {
         Rectangle rectangle = snakeBody.get(snakeBody.size() - 1);
         Rectangle snakeTail = new Rectangle(

@@ -131,4 +131,11 @@
   "firstName" : "Daniel",
   "gender" : "Male",
   "date" : "18/5/2022"
+}, {
+  "username" : "marioCelMaiTare",
+  "password" : "J���#�p\u0007x+\u0013}6�QG��/�|\u0006��Y��ȕ2�i��nC��\u001B+���԰Z'6�J���q�\u0004��\u0018\u0003 \u001B�",
+  "lastName" : "Salazar",
+  "firstName" : "Mario",
+  "gender" : "Male",
+  "date" : "12/7/2005"
 } ]

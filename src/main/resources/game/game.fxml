@@ -32,7 +32,7 @@
         </Button>
         <Label fx:id="score" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
            <font>
-               <Font name="Franklin Gothic Medium" size="40.0" />
+               <Font name="VCR OSD Mono" size="40.0" />
            </font>
            <GridPane.margin>
                <Insets top="-150.0" />
@@ -49,7 +49,7 @@
             <Insets left="30.0" top="50.0" />
          </padding>
         </Button>
-        <ImageView fx:id="keyboard" fitHeight="268.0" fitWidth="513.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+        <ImageView fx:id="keyboard" fitHeight="245.0" fitWidth="373.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
            <image>
                <Image url="@instructions.png" />
            </image>
@@ -57,27 +57,27 @@
                <Insets right="150.0" />
            </GridPane.margin>
         </ImageView>
-        <Label fx:id="instructions" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="298.0" prefWidth="497.0" text="W - Up&#10;A - Left&#10;S - Down&#10;D - Right" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <Label fx:id="instructions" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="480.0" prefWidth="627.0" text="W - Up&#10;A - Left&#10;S - Down&#10;D - Right" GridPane.columnIndex="1" GridPane.rowIndex="2">
            <GridPane.margin>
                <Insets left="250.0" />
            </GridPane.margin>
            <font>
-               <Font name="Franklin Gothic Medium" size="50.0" />
+               <Font name="VCR OSD Mono" size="45.0" />
            </font>
         </Label>
       <ImageView fx:id="Invincibility" fitHeight="518.0" fitWidth="922.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <image>
-            <Image url="@invincibility.png" />
+            <Image url="@invincibility2.png" />
          </image>
       </ImageView>
-        <Button fx:id="startButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="104.0" maxWidth="323.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onKeyPressed="#moveSquareKeyPressed" onMouseClicked="#start" onMousePressed="#exit" prefHeight="104.0" prefWidth="323.0" style="-fx-background-color: white; -fx-background-radius: 100; -fx-border-color: black; -fx-border-radius: 100;" text="Start Game" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+        <Button fx:id="startButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="104.0" maxWidth="389.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onKeyPressed="#moveSquareKeyPressed" onMouseClicked="#start" onMousePressed="#exit" prefHeight="104.0" prefWidth="389.0" style="-fx-background-color: white; -fx-background-radius: 100; -fx-border-color: black; -fx-border-radius: 100;" text="Start Game" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
           <font>
-              <Font name="Franklin Gothic Medium" size="50.0" />
+              <Font name="VCR OSD Mono" size="50.0" />
           </font>
         </Button>
       <Label fx:id="money" text="+1$" translateX="-120.0" translateY="50.0" visible="false">
          <font>
-            <Font name="Franklin Gothic Medium" size="49.0" />
+            <Font name="VCR OSD Mono" size="49.0" />
          </font>
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" translateX="160.0" visible="false">
@@ -92,7 +92,7 @@
         <children>
             <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeApp" onMouseClicked="#closeApp" onMousePressed="#closeApp" style="-fx-background-color: transparent;" text="❌">
                 <font>
-                    <Font name="Franklin Gothic Medium" size="25.0" />
+                    <Font name="VCR OSD Mono" size="25.0" />
                 </font>
             <HBox.margin>
                <Insets top="10.0" />

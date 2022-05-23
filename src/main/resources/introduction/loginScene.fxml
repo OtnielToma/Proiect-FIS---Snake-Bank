@@ -10,7 +10,7 @@
 <AnchorPane fx:id="loginPane" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#switchToMenuSceneByEnter" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-repeat: no-repeat; -fx-background-size: cover; -fx-background-position: center; -fx-background-image: url(introduction/background.jpg);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.introduction.controllers.RegistrationController">
 
 
-   <GridPane alignment="CENTER" focusTraversable="true" hgap="10" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-alignment: center;" vgap="10">
+   <GridPane alignment="CENTER" focusTraversable="true" hgap="10" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" scaleX="1.5" scaleY="1.5" style="-fx-alignment: center;" vgap="10">
 
       <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-alignment: center;" text="WELCOME TO SNAKE BANK!" textAlignment="CENTER" textFill="WHITE" translateY="-80.0" GridPane.columnSpan="2147483647">
          <font>
