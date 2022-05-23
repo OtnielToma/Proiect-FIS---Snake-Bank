@@ -15,6 +15,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.loose.fis.banking.FriendsListservices;
 import org.loose.fis.banking.Walletservices;
 import org.loose.fis.introduction.Main;
 import org.loose.fis.introduction.exceptions.UsernameOrPasswordIncorrectException;
@@ -67,6 +68,7 @@ public class RegistrationController {
             {
                 UserService.addUser(usernameField.getText(), passwordField.getText(),lastName.getText(),firstName.getText(), (String) gender.getSelectionModel().getSelectedItem(),""+date.getValue().getDayOfMonth()+"/"+date.getValue().getMonthValue()+"/"+date.getValue().getYear());
                 Walletservices.addWallets(usernameField.getText());
+                FriendsListservices.addFriendsList(usernameField.getText());
 
             registrationMessage.setText("Account created successfully!");}
             else

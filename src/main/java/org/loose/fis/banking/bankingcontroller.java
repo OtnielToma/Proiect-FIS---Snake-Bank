@@ -36,4 +36,18 @@ public class bankingcontroller {
         stage1.show();
     }
 
+    public  void  popupAddFriend(){
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("banking/friends.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Add friends");
+            stage.setScene(new Scene(root, 525, 450));
+            stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
