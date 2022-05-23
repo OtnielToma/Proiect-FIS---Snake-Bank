@@ -1,12 +1,12 @@
-package org.loose.fis.introduction.services;
+package org.loose.fis.authentication.services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
-import org.loose.fis.introduction.exceptions.CouldNotWriteUsersException;
-import org.loose.fis.introduction.exceptions.UsernameAlreadyExistsException;
-import org.loose.fis.introduction.exceptions.UsernameOrPasswordIncorrectException;
-import org.loose.fis.introduction.model.User;
+import org.loose.fis.authentication.exceptions.CouldNotWriteUsersException;
+import org.loose.fis.authentication.exceptions.UsernameAlreadyExistsException;
+import org.loose.fis.authentication.exceptions.UsernameOrPasswordIncorrectException;
+import org.loose.fis.authentication.model.User;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

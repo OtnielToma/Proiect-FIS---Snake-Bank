@@ -87,10 +87,64 @@
             </ImageView>
          </graphic>
       </Label>
+      <Button mnemonicParsing="false" onAction="#chooseSkin" onMouseClicked="#exit" style="-fx-background-color: transparent;" text="Choose Skin" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+         <font>
+            <Font name="VCR OSD Mono" size="30.0" />
+         </font>
+      </Button>
     </GridPane>
+   <GridPane fx:id="ChooseSkin" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="720.0" style="-fx-background-color: #666155; -fx-border-color: black;" translateX="600.0" translateY="180.0" visible="false">
+     <columnConstraints>
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+      <children>
+         <Label prefHeight="54.0" prefWidth="365.0" text="Choose skin" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER">
+            <font>
+               <Font name="VCR OSD Mono" size="50.0" />
+            </font>
+         </Label>
+         <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#selectHead1" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <image>
+               <Image url="@head.jpg" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#selectHead2" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <image>
+               <Image url="@head2.jpg" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#selectHead3" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <image>
+               <Image url="@head6.jpg" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#selectHead4" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <image>
+               <Image url="@head3.jpg" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#selectHead5" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <image>
+               <Image url="@head4.jpg" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#selectHead6" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <image>
+               <Image url="@head5.jpg" />
+            </image>
+         </ImageView>
+      </children>
+   </GridPane>
     <HBox prefHeight="64.0" prefWidth="1920.0" style="-fx-background-color: #666155;">
         <children>
-            <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeApp" onMouseClicked="#closeApp" onMousePressed="#closeApp" style="-fx-background-color: transparent;" text="❌">
+            <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeApp" style="-fx-background-color: transparent;" text="❌">
                 <font>
                     <Font name="VCR OSD Mono" size="25.0" />
                 </font>

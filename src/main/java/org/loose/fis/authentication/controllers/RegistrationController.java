@@ -1,17 +1,13 @@
-package org.loose.fis.introduction.controllers;
+package org.loose.fis.authentication.controllers;
 
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -20,15 +16,13 @@ import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 import org.loose.fis.banking.FriendsListservices;
 import org.loose.fis.banking.Walletservices;
-import org.loose.fis.introduction.Main;
-import org.loose.fis.introduction.exceptions.UsernameOrPasswordIncorrectException;
-import org.loose.fis.introduction.exceptions.UsernameAlreadyExistsException;
-import org.loose.fis.introduction.services.UserService;
+import org.loose.fis.authentication.Main;
+import org.loose.fis.authentication.exceptions.UsernameOrPasswordIncorrectException;
+import org.loose.fis.authentication.exceptions.UsernameAlreadyExistsException;
+import org.loose.fis.authentication.services.UserService;
 
 import java.io.IOException;
 import java.util.Objects;
-
-import static javafx.stage.StageStyle.DECORATED;
 
 public class RegistrationController {
 
@@ -97,7 +91,7 @@ public class RegistrationController {
 
     public void switchToRegisterScene(ActionEvent event) throws IOException {
 
-        root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("introduction/registerScene.fxml")));
+        root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("authentication/registerScene.fxml")));
         stage1 = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         scene1 = new Scene(root1);
@@ -108,7 +102,7 @@ public class RegistrationController {
     }
 
     public void switchToLoginScene(ActionEvent event) throws IOException {
-        root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("introduction/loginScene.fxml")));
+        root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("authentication/loginScene.fxml")));
         stage1 = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene1 = new Scene(root1);
         stage1.setScene(scene1);
@@ -120,7 +114,7 @@ public class RegistrationController {
 
         if(handleLoginAction())
         {
-        root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("introduction/menuScene.fxml")));
+        root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("authentication/menuScene.fxml")));
         stage1 = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene1 = new Scene(root1);
         stage1.setScene(scene1);
@@ -173,7 +167,7 @@ public class RegistrationController {
         if (event.getCode() == event.getCode().ENTER) {
             if(handleLoginAction())
             {
-                root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("introduction/menuScene.fxml")));
+                root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("authentication/menuScene.fxml")));
                 stage1 = (Stage)((Node)event.getSource()).getScene().getWindow();
                 scene1 = new Scene(root1);
                 stage1.setScene(scene1);

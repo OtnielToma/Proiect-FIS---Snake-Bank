@@ -1,4 +1,4 @@
-package org.loose.fis.introduction.model;
+package org.loose.fis.authentication.model;
 
 public class User {
 

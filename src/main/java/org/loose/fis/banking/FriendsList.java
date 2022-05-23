@@ -1,7 +1,7 @@
 package org.loose.fis.banking;
 
-import org.loose.fis.introduction.model.User;
-import org.loose.fis.introduction.services.UserService;
+import org.loose.fis.authentication.model.User;
+import org.loose.fis.authentication.services.UserService;
 
 import java.util.ArrayList;
 
