@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import org.loose.fis.introduction.Main;
@@ -53,4 +52,19 @@ public class bankingcontroller {
         stage1.setResizable(false);
         stage1.show();
     }
+
+    public  void  popupAddFriend(){
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("banking/friends.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Add friends");
+            stage.setScene(new Scene(root, 525, 450));
+            stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

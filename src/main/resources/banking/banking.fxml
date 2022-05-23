@@ -65,4 +65,16 @@
             </font>
         </Button>
     </HBox>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.banking.bankingcontroller">
+   <children>
+      <Label fx:id="fundslabel" layoutX="216.0" layoutY="47.0" prefHeight="44.0" prefWidth="168.0" text="Your current funds:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button layoutX="248.0" layoutY="124.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="118.0" text="Transfer funds" />
+      <Button layoutX="285.0" layoutY="174.0" mnemonicParsing="false" text="Shop" />
+      <Button layoutX="270.0" layoutY="220.0" mnemonicParsing="false" onAction="#popupAddFriend" text="Add friend" />
+      <Button layoutX="281.0" layoutY="275.0" mnemonicParsing="false" onAction="#switchToMiningScene" text="Minare" />
+   </children>
 </AnchorPane>
