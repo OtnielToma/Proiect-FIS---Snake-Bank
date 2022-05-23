@@ -37,15 +37,16 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class Controller <speed>  implements Initializable{
+public class Controller implements Initializable{
 
-    private final Double snakeSize = 50.;
+    private final Double snakeSize = 64.;
     private Rectangle snakeHead;
     private Rectangle snakeTail_1;
     double xPos;
     double yPos;
 
     Food food;
+    ExtraFood extraFood;
     private Direction direction;
     private final List<Position> positions = new ArrayList<>();
     private final ArrayList<Rectangle> snakeBody = new ArrayList<>();
@@ -61,8 +62,11 @@ public class Controller <speed>  implements Initializable{
     private Label instructions;
     @FXML
     private Label score;
-
-    private float Score=0;
+    @FXML
+    private ImageView Invincibility;
+    @FXML
+    public Button closeButton;
+    private int Score=0;
 
 
     Timeline timeline;
@@ -74,7 +78,7 @@ public class Controller <speed>  implements Initializable{
         startButton.setOpacity(0); //dupa apasarea butonului acesta dispare
         Score=0;//scorul se reseteaza
         String txt;
-        txt="Score: " + String.format("%d",(int)Score);
+        txt="Score: " + String.format("%d", Score);
         score.setText(txt);
 
         for (Rectangle snake : snakeBody) {
@@ -84,13 +88,15 @@ public class Controller <speed>  implements Initializable{
         gameTicks = 0;
         positions.clear();
         snakeBody.clear();
-        snakeHead = new Rectangle(250, 250, snakeSize, snakeSize);
+        snakeHead = new Rectangle(320, 320, snakeSize, snakeSize);
         snakeTail_1 = new Rectangle(snakeHead.getX() - snakeSize, snakeHead.getY(), snakeSize, snakeSize);
         xPos = snakeHead.getLayoutX();
         yPos = snakeHead.getLayoutY();
         direction = Direction.RIGHT;
         canChangeDirection = true;
+
         food.moveFood();
+        extraFood.moveFood();
 
         snakeBody.add(snakeHead);
 
@@ -108,24 +114,66 @@ public class Controller <speed>  implements Initializable{
 
     }
 
+
+    public void closeApp(ActionEvent event) {
+        Stage stage = (Stage) closeButton.getScene().getWindow();
+        stage.close();
+    }
+
+     double speed= 0.1;
+
+    double deltaW ;
+    double deltaH ;
+    Image img = new Image("/game/BoostedHead.jpg");
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
-        timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), e -> {
+        timeline = new Timeline(new KeyFrame(Duration.seconds(speed), e -> {
             positions.add(new Position(snakeHead.getX() + xPos, snakeHead.getY() + yPos));
             moveSnakeHead(snakeHead);
             for (int i = 1; i < snakeBody.size(); i++) {
                 moveSnakeTail(snakeBody.get(i), i);
             }
+
             canChangeDirection = true;
             eatFood();
+            eatExtraFood();
             gameTicks++;
-            if(checkIfGameIsOver(snakeHead)){
-                timeline.stop();
+
+            if(ExtraFoodHasBeenEaten)
+            {
+                String txt1;
+                snakeHead.setFill(new ImagePattern(img));
+                Invincibility.setVisible(true);
+
+                new java.util.Timer().schedule(
+                        new java.util.TimerTask() {
+                            @Override
+                            public void run() {
+                                Invincibility.setVisible(false);
+                                ExtraFoodHasBeenEaten=false;
+                                Image img = new Image("/game/head.jpg");
+                                snakeHead.setFill(new ImagePattern(img));
+                            }
+                        },
+                        5000
+                );
             }
+            else {
+                deltaW = anchorPane.getWidth();
+                deltaH = anchorPane.getHeight();
+
+
+                if (checkIfGameIsOver(snakeHead))
+                    timeline.stop();
+            }
+
+
         }));
         food = new Food(-50,-50,anchorPane,snakeSize);
+        extraFood=new ExtraFood(-50,-50,anchorPane,snakeSize);
+
 
     }
 
@@ -145,7 +193,6 @@ public class Controller <speed>  implements Initializable{
             canChangeDirection = false;
         }
     }
-
 
     private void moveSnakeHead(Rectangle snakeHead) {
         if (direction.equals(Direction.RIGHT)) {
@@ -169,15 +216,15 @@ public class Controller <speed>  implements Initializable{
         snakeTail.setTranslateX(xPos);
         snakeTail.setTranslateY(yPos);
     }
-
+    Image img1 = new Image("/game/tail.jpg");
     private void addSnakeTail() {
         Rectangle rectangle = snakeBody.get(snakeBody.size() - 1);
         Rectangle snakeTail = new Rectangle(
                 snakeBody.get(1).getX() + xPos + snakeSize,
                 snakeBody.get(1).getY() + yPos,
                 snakeSize, snakeSize);
-        Image img = new Image("/game/tail.jpg"); //atribuire resursa
-        snakeTail.setFill(new ImagePattern(img));
+
+        snakeTail.setFill(new ImagePattern(img1));
 
         snakeBody.add(snakeTail);
         anchorPane.getChildren().add(snakeTail);
@@ -189,16 +236,16 @@ public class Controller <speed>  implements Initializable{
         Walletservices.updateWallet(userWallet);
     }
 
-    public boolean checkIfGameIsOver(Rectangle snakeHead) {
-        double deltaW = anchorPane.getWidth() ;
-        double deltaH = anchorPane.getHeight() ;
 
-        if (xPos > deltaW-318 || xPos < -250 ||yPos < -250 || yPos > deltaH-318)
+    public boolean checkIfGameIsOver(Rectangle snakeHead) {
+
+
+        if (xPos > 1920-384 || xPos <= -375+28 ||yPos <= -320+28 || yPos > 1080-320)
         {
             startButton.setOpacity(100);
             startButton.setDisable(false);
 
-            addFunds();
+           addFunds();
 
             return true;
         } else
@@ -228,22 +275,67 @@ public class Controller <speed>  implements Initializable{
         }
         return false;
     }
-
+@FXML
+Label money;
     private void eatFood(){
         if(xPos + snakeHead.getX() == food.getPosition().getXPos() && yPos + snakeHead.getY() == food.getPosition().getYPos()){
             Score=Score+1;
             String txt;
-            txt="Score: "+String.format("%d",(int)Score);
+            txt="Score: "+Score;
+
+            if(Score % 10==0)
+            {money.setVisible(true);
+                new java.util.Timer().schedule(
+                        new java.util.TimerTask() {
+                            @Override
+                            public void run() {
+                                money.setVisible(false);
+                            }
+                        },
+                        5000
+                );}
             score.setText(txt);
             foodCantSpawnInsideSnake();
             addSnakeTail();
         }
     }
+    boolean ExtraFoodHasBeenEaten=false;
+    private void eatExtraFood(){
 
+        if(xPos + snakeHead.getX() == extraFood.getPosition().getXPos() && yPos + snakeHead.getY() == extraFood.getPosition().getYPos()){
+            ExtraFoodHasBeenEaten=true;
+            Score=Score+1;
+            String txt;
+            txt="Score: "+Score;
+            score.setText(txt);
+            addSnakeTail();
+            extraFood.disable();
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+
+                            extraFoodCantSpawnInsideSnake();extraFood.enable();
+                        }
+                    },
+                    10000
+            );
+
+
+
+        }
+    }
     private void foodCantSpawnInsideSnake(){
         food.moveFood();
         while (isFoodInsideSnake()){
             food.moveFood();
+        }
+    }
+
+    private void extraFoodCantSpawnInsideSnake(){
+        extraFood.moveFood();
+        while (isExtraFoodInsideSnake()){
+            extraFood.moveFood();
         }
     }
 
@@ -253,7 +345,6 @@ public class Controller <speed>  implements Initializable{
             for (int i = size - snakeBody.size(); i < size; i++) {
                 if(food.getPosition().getXPos() == (positions.get(i).getXPos())
                         && food.getPosition().getYPos() == (positions.get(i).getYPos())){
-                    System.out.println("Inside");
                     return true;
                 }
             }
@@ -261,6 +352,18 @@ public class Controller <speed>  implements Initializable{
         return false;
     }
 
+    private boolean isExtraFoodInsideSnake(){
+        int size = positions.size();
+        if(size > 2){
+            for (int i = size - snakeBody.size(); i < size; i++) {
+                if(extraFood.getPosition().getXPos() == (positions.get(i).getXPos())
+                        && extraFood.getPosition().getYPos() == (positions.get(i).getYPos())){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
 
     public void backToMenuScene(ActionEvent event) throws IOException {

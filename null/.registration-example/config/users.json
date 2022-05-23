@@ -124,4 +124,11 @@
   "firstName" : "Dusan",
   "gender" : "Female",
   "date" : "16/5/2022"
+}, {
+  "username" : "Toma",
+  "password" : "ݓ�\f!��\u0017�T)g����P��Kku��;^�)�i2�,�/�Mfe\u0012\u0006\u001C\u0012�\u0016x\u0005�/k�y{���_�q\u001CW�",
+  "lastName" : "Toma",
+  "firstName" : "Daniel",
+  "gender" : "Male",
+  "date" : "18/5/2022"
 } ]

@@ -4,7 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.loose.fis.banking.Walletservices;
 import org.loose.fis.introduction.services.UserService;
 
@@ -30,13 +32,12 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image("/introduction/Logo.png"));
 
 
-        primaryStage.setWidth(1280);
-        primaryStage.setHeight(720);
+        primaryStage.setWidth(1920);
+        primaryStage.setHeight(1080);
 
-        primaryStage.sizeToScene();
-
-        //primaryStage.setScene(new Scene(root, 600, 400));
-
+        primaryStage.setMaximized(true);primaryStage.setResizable(false);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
+        //primaryStage.setFullScreen(true);
 
         primaryStage.show();
 

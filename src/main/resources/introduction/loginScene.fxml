@@ -7,15 +7,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="loginPane" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#switchToMenuSceneByEnter" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-repeat: no-repeat; -fx-background-size: cover; -fx-background-position: center; -fx-background-image: url(introduction/background.jpg);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.introduction.controllers.RegistrationController">
+<AnchorPane fx:id="loginPane" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#switchToMenuSceneByEnter" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-repeat: no-repeat; -fx-background-size: cover; -fx-background-position: center; -fx-background-image: url(introduction/background.jpg);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.introduction.controllers.RegistrationController">
 
 
-   <GridPane alignment="CENTER" focusTraversable="true" hgap="10" layoutX="124.4000015258789" style="-fx-alignment: center;" vgap="10" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
-
-
-      <padding>
-         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-      </padding>
+   <GridPane alignment="CENTER" focusTraversable="true" hgap="10" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-alignment: center;" vgap="10">
 
       <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-alignment: center;" text="WELCOME TO SNAKE BANK!" textAlignment="CENTER" textFill="WHITE" translateY="-80.0" GridPane.columnSpan="2147483647">
          <font>
@@ -32,7 +27,7 @@
          </GridPane.margin>
       </Label>
 
-      <Label alignment="CENTER" style="-fx-alignment: center;" text="Username:" textFill="WHITE" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Label alignment="CENTER" prefWidth="539.0" style="-fx-alignment: center;" text="Username:" textFill="WHITE" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <font>
             <Font name="Franklin Gothic Medium" size="20.0" />
          </font>
@@ -102,6 +97,15 @@
          <RowConstraints />
          <RowConstraints />
          <RowConstraints />
+         <RowConstraints />
       </rowConstraints>
    </GridPane>
+   <HBox prefHeight="28.0" prefWidth="1920.0" style="-fx-background-color: #666155;">
+      <children>
+         <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeApp" style="-fx-background-color: transparent;" text="❌">
+            <font>
+               <Font name="Franklin Gothic Medium" size="25.0" />
+            </font></Button>
+      </children>
+   </HBox>
 </AnchorPane>

@@ -19,7 +19,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
 
-        UserService.loadUsersFromFile();
+       // UserService.loadUsersFromFile();
 
 
         Scene scene = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("game/game.fxml"))));

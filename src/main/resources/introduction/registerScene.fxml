@@ -158,4 +158,12 @@
          <RowConstraints />
         </rowConstraints>
     </GridPane>
+    <HBox prefHeight="28.0" prefWidth="1920.0" style="-fx-background-color: #666155;">
+        <children>
+            <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeApp" style="-fx-background-color: transparent;" text="❌">
+                <font>
+                    <Font name="Franklin Gothic Medium" size="25.0" />
+                </font></Button>
+        </children>
+    </HBox>
 </AnchorPane>
