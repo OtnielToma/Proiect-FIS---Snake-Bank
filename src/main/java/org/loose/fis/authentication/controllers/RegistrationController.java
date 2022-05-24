@@ -1,5 +1,6 @@
 package org.loose.fis.authentication.controllers;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -85,6 +86,7 @@ public class RegistrationController {
     public void closeApp(ActionEvent event) {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
+        Platform.exit();
     }
 
     public void switchToRegisterScene(ActionEvent event) throws IOException {

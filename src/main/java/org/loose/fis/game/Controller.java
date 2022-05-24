@@ -1,4 +1,5 @@
 package org.loose.fis.game;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -74,6 +75,8 @@ public class Controller implements Initializable{
     private GridPane GridPane1;
     @FXML
     private HBox Hbox;
+    @FXML
+    private GridPane backgroundChooseSkin;
     private int Score=0;
 
 
@@ -85,13 +88,12 @@ public class Controller implements Initializable{
 
     @FXML
     void start(MouseEvent event) {
-        chooseSkin.setVisible(false);
-       if(gameOver==1)
+
+       if(gameOver==1 && isMuted==false)
        { mediaPlayer.play();
-
         mediaPlayer1.stop();}
-
-        startButton.setOpacity(0); //dupa apasarea butonului acesta dispare
+        chooseSkin.setVisible(false);
+        startButton.setVisible(false); //dupa apasarea butonului acesta dispare
         Score=0;//scorul se reseteaza
         String txt;
         txt="Score: " + String.format("%d", Score);
@@ -132,9 +134,13 @@ public class Controller implements Initializable{
 
 
     public void closeApp(ActionEvent event) {
+
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
+        Platform.exit();
     }
+
+
 
      double speed= 0.1;
 
@@ -143,7 +149,6 @@ public class Controller implements Initializable{
     Image imgHead = new Image("/game/head.jpg");
     Image imgBoostedTail = new Image("/game/BoostedTail.jpg");
     String url = new String("/game/BoostedHeadPreview.jpg");
-    String url2 = new String("/game/head.jpg");
     String urlTail = new String("/game/tail.jpg");
     Image img = new Image(url);
     Image imgTail=new Image(urlTail);
@@ -152,17 +157,18 @@ public class Controller implements Initializable{
     public void selectHead1(){
         imgHead = new Image("/game/head.jpg");
         imgTail = new Image("/game/tail.jpg");
-        ChooseSkin.setVisible(false);
+        ChooseSkin.setVisible(false);backgroundChooseSkin.setVisible(false);
+        chooseSkin.setVisible(true);startButton.setVisible(true);
 
         GridPane1.toBack();
         ChooseSkin.toBack();
-
     }
     @FXML
     public void selectHead2() {
         imgHead = new Image("/game/head2.jpg");
         imgTail = new Image("/game/tail.jpg");
-        ChooseSkin.setVisible(false);
+        ChooseSkin.setVisible(false);backgroundChooseSkin.setVisible(false);
+        chooseSkin.setVisible(true);startButton.setVisible(true);
         GridPane1.toBack();
         ChooseSkin.toBack();
     }
@@ -170,7 +176,8 @@ public class Controller implements Initializable{
     public void selectHead3(){
         imgHead = new Image("/game/head6.jpg");
         imgTail = new Image("/game/tail3.jpg");
-        ChooseSkin.setVisible(false);
+        ChooseSkin.setVisible(false);backgroundChooseSkin.setVisible(false);
+        chooseSkin.setVisible(true);startButton.setVisible(true);
         GridPane1.toBack();
         ChooseSkin.toBack();
     }
@@ -178,7 +185,8 @@ public class Controller implements Initializable{
     public void selectHead4(){
         imgHead = new Image("/game/head3.jpg");
         imgTail = new Image("/game/tail3.jpg");
-        ChooseSkin.setVisible(false);
+        ChooseSkin.setVisible(false);backgroundChooseSkin.setVisible(false);
+        chooseSkin.setVisible(true);startButton.setVisible(true);
         GridPane1.toBack();
         ChooseSkin.toBack();
     }
@@ -186,7 +194,8 @@ public class Controller implements Initializable{
     public void selectHead5() {
         imgHead = new Image("/game/head4.jpg");
         imgTail = new Image("/game/tail6.jpg");
-        ChooseSkin.setVisible(false);
+        ChooseSkin.setVisible(false);backgroundChooseSkin.setVisible(false);
+        chooseSkin.setVisible(true);startButton.setVisible(true);
         GridPane1.toBack();
         ChooseSkin.toBack();
     }
@@ -194,7 +203,8 @@ public class Controller implements Initializable{
     public void selectHead6(){
         imgHead = new Image("/game/head5.jpg");
         imgTail = new Image("/game/tail5.jpg");
-        ChooseSkin.setVisible(false);
+        ChooseSkin.setVisible(false);backgroundChooseSkin.setVisible(false);
+        chooseSkin.setVisible(true);startButton.setVisible(true);
         GridPane1.toBack();
         ChooseSkin.toBack();
     }
@@ -203,11 +213,14 @@ public class Controller implements Initializable{
     private static MediaPlayer mediaPlayer2;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+
         gameOver=0;
         String bip = "C:\\Users\\expre\\IdeaProjects\\Proiect FIS - Snake Bank\\src\\main\\resources\\game\\backgroundMusic.wav";
         Media hit = new Media(new File(bip).toURI().toString());
         mediaPlayer = new MediaPlayer(hit);
-        mediaPlayer.setVolume(50);
+        mediaPlayer.setVolume(0.1);
         mediaPlayer.setCycleCount(99999999);
         mediaPlayer.play();
 
@@ -253,17 +266,22 @@ public class Controller implements Initializable{
 
 
                 if (checkIfGameIsOver(snakeHead))
-                {timeline.stop();
+                {
+                    timeline.stop();
                     Hbox.toFront();
-                    //GridPane1.toFront();
-                mediaPlayer.stop();gameOver=1;
-                String bip1 = "C:\\Users\\expre\\IdeaProjects\\Proiect FIS - Snake Bank\\src\\main\\resources\\game\\gameOver.wav";
-                Media hit1 = new Media(new File(bip1).toURI().toString());
-                mediaPlayer1 = new MediaPlayer(hit1);
-                mediaPlayer1.setVolume(100);
-                mediaPlayer1.play();
-                    chooseSkin.setVisible(true);}
-            }
+                    if(mediaPlayer.isMute()==false)
+                    mediaPlayer.stop();
+                    gameOver=1;
+
+                    Media hit2 = new Media(new File("C:\\Users\\expre\\IdeaProjects\\Proiect FIS - Snake Bank\\src\\main\\resources\\game\\gameOver.wav").toURI().toString());
+                    mediaPlayer1 = new MediaPlayer(hit2);
+                    mediaPlayer1.setVolume(0.1);
+                    if(isMuted==false)
+                    mediaPlayer1.play();
+
+                    chooseSkin.setVisible(true);
+                }
+                }
 
 
         }));
@@ -340,7 +358,7 @@ public class Controller implements Initializable{
 
         if (xPos > 1920-384 || xPos <= -375+28 ||yPos <= -320+28 || yPos > 1080-320)
         {
-            startButton.setOpacity(100);
+            startButton.setVisible(true);
             startButton.setDisable(false);
 
            addFunds();
@@ -349,7 +367,7 @@ public class Controller implements Initializable{
         } else
             if(snakeHitItSelf())
         {
-            startButton.setOpacity(100);
+            startButton.setVisible(true);
             startButton.setDisable(false);
 
             addFunds();
@@ -381,10 +399,11 @@ Label money;
             String txt;
             txt="Score: "+Score;
 
-            String bip2 = "C:\\Users\\expre\\IdeaProjects\\Proiect FIS - Snake Bank\\src\\main\\resources\\game\\soundEffect.wav";
-            Media hit2 = new Media(new File(bip2).toURI().toString());
+
+            Media hit2 = new Media(new File("C:\\Users\\expre\\IdeaProjects\\Proiect FIS - Snake Bank\\src\\main\\resources\\game\\soundEffect.wav").toURI().toString());
             mediaPlayer2 = new MediaPlayer(hit2);
-            mediaPlayer2.setVolume(100);
+            mediaPlayer2.setVolume(0.1);
+            if(isMuted==false)
             mediaPlayer2.play();
 
             if(Score % 10==0)
@@ -403,6 +422,7 @@ Label money;
             addSnakeTail();
         }
     }
+
     boolean ExtraFoodHasBeenEaten=false;
     private void eatExtraFood(){
 
@@ -412,10 +432,11 @@ Label money;
             String txt;
             txt="Score: "+Score;
 
-            String bip1 = "C:\\Users\\expre\\IdeaProjects\\Proiect FIS - Snake Bank\\src\\main\\resources\\game\\soundEffect.wav";
-            Media hit1 = new Media(new File(bip1).toURI().toString());
+            Media hit1 = new Media(new File("C:\\Users\\expre\\IdeaProjects\\Proiect FIS - Snake Bank\\src\\main\\resources\\game\\soundEffect.wav").toURI().toString());
             mediaPlayer2 = new MediaPlayer(hit1);
-            mediaPlayer2.setVolume(100);
+
+            mediaPlayer2.setVolume(0.1);
+            if(isMuted==false)
             mediaPlayer2.play();
 
             score.setText(txt);
@@ -489,9 +510,35 @@ Label money;
     @FXML
     void chooseSkin(ActionEvent event){
         GridPane1.toFront();
+        backgroundChooseSkin.toFront();
         ChooseSkin.toFront();
         Hbox.toFront();
+        backgroundChooseSkin.setVisible(true);
         ChooseSkin.setVisible(true);
+        chooseSkin.setVisible(false);
+        startButton.setVisible(false);
+
+    }
+    boolean isMuted=false;
+    @FXML
+    void muteGame(ActionEvent event)throws IOException{
+             isMuted=true;
+
+            Media hit2 = new Media(new File("C:\\Users\\expre\\IdeaProjects\\Proiect FIS - Snake Bank\\src\\main\\resources\\game\\gameOver.wav").toURI().toString());
+            mediaPlayer1 = new MediaPlayer(hit2);
+
+            Media hit1 = new Media(new File("C:\\Users\\expre\\IdeaProjects\\Proiect FIS - Snake Bank\\src\\main\\resources\\game\\soundEffect.wav").toURI().toString());
+            mediaPlayer2 = new MediaPlayer(hit1);
+
+            mediaPlayer.stop();
+            mediaPlayer1.stop();
+            mediaPlayer2.stop();
+    }
+
+    @FXML
+    void unmuteGame(ActionEvent event)throws IOException{
+        isMuted=false;
+        mediaPlayer.play();
     }
 
     @FXML

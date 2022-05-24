@@ -1,5 +1,6 @@
 package org.loose.fis.banking.controllers;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,6 +14,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import org.loose.fis.authentication.Main;
 import org.loose.fis.banking.exceptions.CouldNotFindUserException;
@@ -33,10 +36,14 @@ public class transfercontroller {
     private TextField transferAmount;
     @FXML
     public Button closeButton;
+    @FXML
+    private Label transferLabel;
 
     public void closeApp(ActionEvent event) {
+
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
+        Platform.exit();
     }
 
     Stage stage1;
@@ -61,9 +68,15 @@ public class transfercontroller {
 
             Label friendUsernameLabel = new Label();
             friendUsernameLabel.setText(friendName);
+            friendUsernameLabel.setFont(new Font(25));
+            friendUsernameLabel.setTextFill(Color.web("#666155"));
 
             Button transferButton = new Button();
             transferButton.setText("Transfer");
+            transferButton.setFont(Font.font("Franklin Gothic Medium"));
+            transferButton.setTextFill(Color.WHITE);
+            transferButton.setOpacity(0.5);transferButton.setStyle("-fx-background-color:  #666155");
+            transferButton.setFont(new Font(15));
             transferButton.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
@@ -71,21 +84,20 @@ public class transfercontroller {
 
                     Wallet userWallet = Walletservices.getWallet(Main.getUsername());
                     Wallet friendWallet = Walletservices.getWallet(friendName);
+                    if(transferAmount.getText().equals(""))
+                        transferLabel.setText("Introduce amount!");
+                    else {
+                        if (userWallet.getfunds() >= Integer.parseInt(transferAmount.getText())) {
+                            userWallet.setfunds(userWallet.getfunds() - Integer.parseInt(transferAmount.getText()));
+                            friendWallet.setfunds(friendWallet.getfunds() + Integer.parseInt(transferAmount.getText()));
 
-                    if(userWallet.getfunds() >= Integer.parseInt(transferAmount.getText())){
-                        userWallet.setfunds(userWallet.getfunds() - Integer.parseInt(transferAmount.getText()));
-                        friendWallet.setfunds(friendWallet.getfunds() + Integer.parseInt(transferAmount.getText()));
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setContentText("Transfer successful");
-                        alert.show();
-                    }
-                    else{
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setContentText("Invalid transfer amount");
-                        alert.show();
-                        throw new InvalidTransferAmountException();
-                    }
+                            transferLabel.setText("Successfully transfered " + Integer.parseInt(transferAmount.getText()) + "$ to " + friendName);
+                        } else {
 
+                            transferLabel.setText("Invalid transfer amount");
+                            //throw new InvalidTransferAmountException();
+                        }
+                    }
                     Walletservices.updateWallet(userWallet);
                     Walletservices.updateWallet(friendWallet);
                 }

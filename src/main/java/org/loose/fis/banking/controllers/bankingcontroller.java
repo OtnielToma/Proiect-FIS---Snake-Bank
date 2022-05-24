@@ -1,5 +1,6 @@
 package org.loose.fis.banking.controllers;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import org.loose.fis.authentication.Main;
 import org.loose.fis.banking.exceptions.InvalidTransferAmountException;
@@ -28,20 +31,31 @@ public class bankingcontroller {
     private GridPane ShopGrid;
     @FXML
     private GridPane hideGrid;
+    @FXML
+    private Label alertMoney;
+    @FXML
+    private Label alertMoney1;
+
     private Wallet userWallet;
 
     public void initialize(){
         userWallet = Walletservices.getWallet(Main.getUsername());
 
         fundslabel.setText("$" + (float) userWallet.getfunds());
+        if(userWallet.getfunds()>99999999)
+            fundslabel.setFont(new Font(80));
+        else
+            fundslabel.setFont(new Font(100));
     }
     Stage stage1;
     Scene scene1;
     Parent root1;
 
     public void closeApp(ActionEvent event) {
+
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
+        Platform.exit();
     }
 
     public void switchToMiningScene(ActionEvent event) throws IOException {
@@ -50,6 +64,7 @@ public class bankingcontroller {
         stage1 = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene1 = new Scene(root1);
         stage1.setScene(scene1);
+        stage1.setMaximized(true);
         stage1.setResizable(false);
         stage1.show();
     }
@@ -59,6 +74,7 @@ public class bankingcontroller {
         stage1 = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene1 = new Scene(root1);
         stage1.setScene(scene1);
+        stage1.setMaximized(true);
         stage1.setResizable(false);
         stage1.show();
     }
@@ -68,6 +84,7 @@ public class bankingcontroller {
         stage1 = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene1 = new Scene(root1);
         stage1.setScene(scene1);
+        stage1.setMaximized(true);
         stage1.setResizable(false);
         stage1.show();
     }
@@ -90,7 +107,6 @@ public class bankingcontroller {
         stage1 = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene1 = new Scene(root1);
         stage1.setScene(scene1);
-
         stage1.setResizable(false);stage1.setMaximized(true);
         stage1.show();
 
@@ -112,15 +128,29 @@ public class bankingcontroller {
         userWallet.setfunds(userWallet.getfunds() - price);
         Walletservices.updateWallet(userWallet);
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Bought successfully! Your package will arrive in 2 days on your home address. ");
-        alert.show();
+            alertMoney1.setVisible(true);
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            alertMoney1.setVisible(false);
+                        }
+                    },
+                    3000
+            );
     }
         else{
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setContentText("Not enough funds");
-        alert.show();
-        throw new InvalidTransferAmountException();
+            alertMoney.setVisible(true);
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            alertMoney.setVisible(false);
+                        }
+                    },
+                    2000
+            );
+        //throw new InvalidTransferAmountException();
     }
 
 }
@@ -135,19 +165,33 @@ public class bankingcontroller {
             userWallet.setfunds(userWallet.getfunds() - price);
             Walletservices.updateWallet(userWallet);
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Bought successfully! Your package will arrive in 2 days on your home address.");
-            alert.show();
+            alertMoney1.setVisible(true);
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            alertMoney1.setVisible(false);
+                        }
+                    },
+                    3000
+            );
         }
         else{
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Not enough funds");
-            alert.show();
-            throw new InvalidTransferAmountException();
+            alertMoney.setVisible(true);
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            alertMoney.setVisible(false);
+                        }
+                    },
+                    2000
+            );
+           // throw new InvalidTransferAmountException();
         }
 
     }
-    public  void button3 () {
+    public  void button3 (ActionEvent event) throws InterruptedException, IOException {
 
         int price = 5;
 
@@ -157,15 +201,30 @@ public class bankingcontroller {
             userWallet.setfunds(userWallet.getfunds() - price);
             Walletservices.updateWallet(userWallet);
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Bought successfully! Your package will arrive in 2 days on your home address.");
-            alert.show();
+            alertMoney1.setVisible(true);
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            alertMoney1.setVisible(false);
+                        }
+                    },
+                    3000
+            );
         }
         else{
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Not enough funds");
-            alert.show();
-            throw new InvalidTransferAmountException();
+
+            alertMoney.setVisible(true);
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            alertMoney.setVisible(false);
+                        }
+                    },
+                    2000
+            );
+            //throw new InvalidTransferAmountException();
         }
 
     }

@@ -26,7 +26,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
-        <Button mnemonicParsing="false" onAction="#popupAddFriend" prefHeight="94.0" prefWidth="400.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Add friend" textFill="#666155" translateY="-250.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.rowSpan="2147483647">
+        <Button mnemonicParsing="false" onAction="#popupTransfer" prefHeight="94.0" prefWidth="400.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Transfer Money" textFill="#666155" translateX="-10.0" translateY="-240.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.rowSpan="2147483647">
             <font>
                 <Font name="Franklin Gothic Medium" size="50.0" />
             </font>
@@ -37,7 +37,7 @@
             <Insets right="45.0" />
          </GridPane.margin>
         </Button>
-        <Button mnemonicParsing="false" onAction="#switchToMiningScene" prefHeight="94.0" prefWidth="400.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Mining" textFill="#666155" translateY="-30.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="9" GridPane.rowSpan="2147483647">
+        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#popupShop" prefHeight="94.0" prefWidth="400.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Buy T-shirts" textFill="#666155" translateX="-10.0" translateY="-50.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="9" GridPane.rowSpan="2147483647">
             <font>
                 <Font name="Franklin Gothic Medium" size="50.0" />
             </font>
@@ -45,12 +45,12 @@
             <Insets right="45.0" />
          </GridPane.margin>
         </Button>
-        <Label fx:id="fundslabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="184.0" prefWidth="678.0" textAlignment="CENTER" textFill="#666155" translateY="-380.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2147483647">
+        <Label fx:id="fundslabel" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER" textFill="#666155" translateY="-380.0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.valignment="CENTER">
             <font>
                 <Font name="Franklin Gothic Medium" size="100.0" />
             </font>
         </Label>
-        <Button mnemonicParsing="false" onAction="#popupTransfer" prefHeight="94.0" prefWidth="400.0" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="Transfer funds" textFill="#666155" translateY="-200.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.rowSpan="2147483647">
+        <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#switchToMiningScene" prefHeight="94.0" prefWidth="400.0" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="Mining" textFill="#666155" translateX="-10.0" translateY="-200.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.rowSpan="2147483647">
             <font>
                 <Font name="Franklin Gothic Medium" size="50.0" />
             </font>
@@ -58,7 +58,7 @@
             <Insets right="45.0" />
          </GridPane.margin>
         </Button>
-        <Button mnemonicParsing="false" onAction="#popupShop" prefHeight="94.0" prefWidth="400.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-radius: 100;" text="Shop" textFill="#666155" translateY="-90.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.rowSpan="2147483647">
+        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#popupAddFriend" prefHeight="94.0" prefWidth="400.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-radius: 100;" text="Add friends" textFill="#666155" translateX="-10.0" translateY="-105.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.rowSpan="2147483647">
             <font>
                 <Font name="Franklin Gothic Medium" size="50.0" />
             </font>
@@ -119,15 +119,15 @@
                     <Image url="@../shop/shirt2.png" />
                 </image>
             </ImageView>
-            <Button mnemonicParsing="false" onAction="#button1" prefHeight="50.0" prefWidth="98.0" style="-fx-opacity: 0.5; -fx-background-color: black;" text="Buy for&#10;15$" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <Button mnemonicParsing="false" onAction="#button1" prefHeight="50.0" prefWidth="98.0" style="-fx-opacity: 0.5; -fx-background-color: black; -fx-background-radius: 100;" text="Buy for&#10;15$" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
             <font>
                <Font name="Franklin Gothic Medium" size="15.0" />
             </font></Button>
-            <Button mnemonicParsing="false" onAction="#button2" prefHeight="50.0" prefWidth="98.0" style="-fx-background-color: black; -fx-opacity: 0.5;" text="Buy for&#10;7$" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <Button mnemonicParsing="false" onAction="#button2" prefHeight="50.0" prefWidth="98.0" style="-fx-background-color: black; -fx-opacity: 0.5; -fx-background-radius: 100;" text="Buy for&#10;7$" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
             <font>
                <Font name="Franklin Gothic Medium" size="15.0" />
             </font></Button>
-            <Button mnemonicParsing="false" onAction="#button3" prefHeight="50.0" prefWidth="98.0" style="-fx-opacity: 0.5; -fx-background-color: black;" text="Buy for&#10;5$" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <Button mnemonicParsing="false" onAction="#button3" prefHeight="50.0" prefWidth="98.0" style="-fx-opacity: 0.5; -fx-background-color: black; -fx-background-radius: 100;" text="Buy for&#10;5$" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2">
             <font>
                <Font name="Franklin Gothic Medium" size="15.0" />
             </font></Button>
@@ -138,6 +138,16 @@
                     </ImageView>
                 </graphic>
             </Button>
+         <Label fx:id="alertMoney" alignment="CENTER" contentDisplay="CENTER" prefHeight="218.0" prefWidth="359.0" style="-fx-background-color: efece7; -fx-border-color: black;" text="Not enough funds" textAlignment="CENTER" textFill="#666155" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <font>
+               <Font size="33.0" />
+            </font>
+         </Label>
+         <Label fx:id="alertMoney1" alignment="CENTER" contentDisplay="CENTER" layoutX="317.0" layoutY="204.0" prefHeight="218.0" prefWidth="359.0" style="-fx-background-color: efece7; -fx-border-color: black;" text="Bought successfully! &#10;Your package will arrive soon!" textAlignment="CENTER" textFill="#666155" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <font>
+               <Font name="Franklin Gothic Medium" size="23.0" />
+            </font>
+         </Label>
         </children>
     </GridPane>
     <HBox prefHeight="64.0" prefWidth="1920.0" style="-fx-background-color: #666155;">

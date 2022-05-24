@@ -18,18 +18,6 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
-        <Button mnemonicParsing="false" onAction="#backToMenuScene" prefHeight="99.0" prefWidth="120.0" style="-fx-background-color: transparent;" translateY="25.0" GridPane.valignment="TOP">
-           <graphic>
-               <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                   <image>
-                       <Image url="@backIcon.png" />
-                   </image>
-               </ImageView>
-           </graphic>
-         <GridPane.margin>
-            <Insets left="-10.0" top="40.0" />
-         </GridPane.margin>
-        </Button>
         <Label fx:id="score" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
            <font>
                <Font name="VCR OSD Mono" size="40.0" />
@@ -70,7 +58,7 @@
             <Image url="@invincibility2.png" />
          </image>
       </ImageView>
-        <Button fx:id="startButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="104.0" maxWidth="389.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onKeyPressed="#moveSquareKeyPressed" onMouseClicked="#start" onMousePressed="#exit" prefHeight="104.0" prefWidth="389.0" style="-fx-background-color: white; -fx-background-radius: 100; -fx-border-color: black; -fx-border-radius: 100;" text="Start Game" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+        <Button fx:id="startButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="104.0" maxWidth="389.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onKeyPressed="#moveSquareKeyPressed" onMouseClicked="#start" onMousePressed="#exit" prefHeight="104.0" prefWidth="389.0" style="-fx-background-color: black; -fx-background-radius: 100; -fx-border-color: black; -fx-border-radius: 100; -fx-opacity: 0.5;" text="Start Game" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
           <font>
               <Font name="VCR OSD Mono" size="50.0" />
           </font>
@@ -87,13 +75,54 @@
             </ImageView>
          </graphic>
       </Label>
-      <Button fx:id="chooseSkin" mnemonicParsing="false" onAction="#chooseSkin" onMouseClicked="#exit" style="-fx-background-color: transparent;" text="Choose Skin" translateY="-50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <Button fx:id="chooseSkin" mnemonicParsing="false" onAction="#chooseSkin" onMouseClicked="#exit" style="-fx-background-color: black; -fx-opacity: 0.5; -fx-background-radius: 100;" text="Choose Skin" textFill="WHITE" translateY="-50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <font>
             <Font name="VCR OSD Mono" size="30.0" />
          </font>
       </Button>
+        <Button mnemonicParsing="false" onAction="#backToMenuScene" prefHeight="99.0" prefWidth="120.0" style="-fx-background-color: transparent;" translateY="25.0" GridPane.valignment="TOP">
+           <graphic>
+               <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                   <image>
+                       <Image url="@backIcon.png" />
+                   </image>
+               </ImageView>
+           </graphic>
+         <GridPane.margin>
+            <Insets left="-10.0" top="40.0" />
+         </GridPane.margin>
+        </Button>
+      <Button mnemonicParsing="false" onAction="#muteGame" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" translateX="10.0" translateY="10.0">
+         <graphic>
+            <ImageView fitHeight="66.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@muteIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#unmuteGame" prefHeight="76.0" prefWidth="82.0" style="-fx-background-color: transparent;" translateX="10.0" translateY="90.0">
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@unmuteIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
     </GridPane>
-   <GridPane fx:id="ChooseSkin" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="720.0" style="-fx-background-color: #666155; -fx-border-color: black;" translateX="600.0" translateY="180.0" visible="false">
+   <GridPane fx:id="backgroundChooseSkin" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="720.0" style="-fx-background-color: black; -fx-opacity: 0.5;" translateX="600.0" translateY="180.0" visible="false">
+     <columnConstraints>
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+   </GridPane>
+   <GridPane fx:id="ChooseSkin" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="720.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-opacity: 1;" translateX="600.0" translateY="180.0" visible="false">
      <columnConstraints>
        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -105,7 +134,7 @@
        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
      </rowConstraints>
       <children>
-         <Label prefHeight="54.0" prefWidth="365.0" text="Choose skin" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER">
+         <Label prefHeight="54.0" prefWidth="365.0" style="-fx-opacity: 0.8;" text="Choose skin" textFill="WHITE" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER">
             <font>
                <Font name="VCR OSD Mono" size="50.0" />
             </font>
