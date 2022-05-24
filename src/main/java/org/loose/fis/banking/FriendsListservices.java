@@ -11,6 +11,7 @@ import org.loose.fis.authentication.services.UserService;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -56,7 +57,7 @@ public class FriendsListservices {
         throw new CouldNotFindUserException();
     }
 
-    public static List<String> getFriends() throws CouldNotFindUserException{
+    public static ArrayList<String> getFriends() throws CouldNotFindUserException{
         for (FriendsList f:friends) {
             if (Main.getUsername().equals(f.getUsername())){
                 return  f.getFriendsList();

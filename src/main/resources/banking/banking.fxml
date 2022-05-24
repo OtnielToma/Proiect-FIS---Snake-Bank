@@ -50,7 +50,7 @@
                 <Font name="Franklin Gothic Medium" size="100.0" />
             </font>
         </Label>
-        <Button mnemonicParsing="false" prefHeight="94.0" prefWidth="400.0" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="Transfer funds" textFill="#666155" translateY="-200.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.rowSpan="2147483647">
+        <Button mnemonicParsing="false" onAction="#popupTransfer" prefHeight="94.0" prefWidth="400.0" style="-fx-border-color: transparent; -fx-background-color: transparent;" text="Transfer funds" textFill="#666155" translateY="-200.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.rowSpan="2147483647">
             <font>
                 <Font name="Franklin Gothic Medium" size="50.0" />
             </font>
