@@ -11,9 +11,9 @@
   "username" : "Toma",
   "funds" : 37
 }, {
-  "username" : "12345",
-  "funds" : 1
-}, {
   "username" : "Savic",
   "funds" : 3
+}, {
+  "username" : "12345",
+  "funds" : 1
 } ]

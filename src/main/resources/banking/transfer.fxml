@@ -7,7 +7,7 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #666155;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.banking.controllers.transfercontroller">
-   <GridPane prefHeight="650.0" prefWidth="650.0" style="-fx-border-image-insets: black; -fx-background-color: efece7;" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="250.0">
+   <GridPane prefHeight="650.0" prefWidth="650.0" style="-fx-background-color: efece7;" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="250.0">
      <columnConstraints>
        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
