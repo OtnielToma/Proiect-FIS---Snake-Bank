@@ -58,7 +58,7 @@
             <Insets right="45.0" />
          </GridPane.margin>
         </Button>
-        <Button mnemonicParsing="false" prefHeight="94.0" prefWidth="400.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-radius: 100;" text="Shop" textFill="#666155" translateY="-90.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.rowSpan="2147483647">
+        <Button mnemonicParsing="false" onAction="#popupShop" prefHeight="94.0" prefWidth="400.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-radius: 100;" text="Shop" textFill="#666155" translateY="-90.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.rowSpan="2147483647">
             <font>
                 <Font name="Franklin Gothic Medium" size="50.0" />
             </font>

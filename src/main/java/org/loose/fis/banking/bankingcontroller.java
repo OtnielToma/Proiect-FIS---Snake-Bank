@@ -81,6 +81,20 @@ public class bankingcontroller {
 
     }
 
+    public  void  popupShop(){
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("shop/shop.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Shop");
+            stage.setScene(new Scene(root, 650, 500));
+            stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 }
