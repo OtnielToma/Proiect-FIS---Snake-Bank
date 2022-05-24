@@ -65,4 +65,18 @@ public class bankingcontroller {
 
     }
 
+    public  void  popupTransfer(){
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("banking/transfer.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Transfer");
+            stage.setScene(new Scene(root, 650, 500));
+            stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
