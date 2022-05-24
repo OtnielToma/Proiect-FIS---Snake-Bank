@@ -18,6 +18,9 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -25,7 +28,9 @@ import javafx.util.Duration;
 import org.loose.fis.banking.Wallet;
 import org.loose.fis.banking.Walletservices;
 import org.loose.fis.authentication.Main;
+import sun.awt.SunToolkit;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -64,6 +69,12 @@ public class Controller implements Initializable{
     public Button closeButton;
     @FXML
     private GridPane ChooseSkin;
+    @FXML
+    private Button chooseSkin;
+    @FXML
+    private GridPane GridPane1;
+    @FXML
+    private HBox Hbox;
     private int Score=0;
 
 
@@ -71,10 +82,15 @@ public class Controller implements Initializable{
 
     private boolean canChangeDirection;
 
-
+    int gameOver=0;
 
     @FXML
     void start(MouseEvent event) {
+        chooseSkin.setVisible(false);
+       if(gameOver==1)
+       { mediaPlayer.play();
+
+        mediaPlayer1.stop();}
 
         startButton.setOpacity(0); //dupa apasarea butonului acesta dispare
         Score=0;//scorul se reseteaza
@@ -138,13 +154,17 @@ public class Controller implements Initializable{
         imgHead = new Image("/game/head.jpg");
         imgTail = new Image("/game/tail.jpg");
         ChooseSkin.setVisible(false);
+
+        GridPane1.toBack();
         ChooseSkin.toBack();
+
     }
     @FXML
     public void selectHead2() {
         imgHead = new Image("/game/head2.jpg");
         imgTail = new Image("/game/tail.jpg");
         ChooseSkin.setVisible(false);
+        GridPane1.toBack();
         ChooseSkin.toBack();
     }
     @FXML
@@ -152,6 +172,7 @@ public class Controller implements Initializable{
         imgHead = new Image("/game/head6.jpg");
         imgTail = new Image("/game/tail3.jpg");
         ChooseSkin.setVisible(false);
+        GridPane1.toBack();
         ChooseSkin.toBack();
     }
     @FXML
@@ -159,6 +180,7 @@ public class Controller implements Initializable{
         imgHead = new Image("/game/head3.jpg");
         imgTail = new Image("/game/tail3.jpg");
         ChooseSkin.setVisible(false);
+        GridPane1.toBack();
         ChooseSkin.toBack();
     }
     @FXML
@@ -166,6 +188,7 @@ public class Controller implements Initializable{
         imgHead = new Image("/game/head4.jpg");
         imgTail = new Image("/game/tail6.jpg");
         ChooseSkin.setVisible(false);
+        GridPane1.toBack();
         ChooseSkin.toBack();
     }
     @FXML
@@ -173,12 +196,21 @@ public class Controller implements Initializable{
         imgHead = new Image("/game/head5.jpg");
         imgTail = new Image("/game/tail5.jpg");
         ChooseSkin.setVisible(false);
+        GridPane1.toBack();
         ChooseSkin.toBack();
     }
-
+    private static MediaPlayer mediaPlayer;
+    private static MediaPlayer mediaPlayer1;
+    private static MediaPlayer mediaPlayer2;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        gameOver=0;
+        String bip = "C:\\Users\\expre\\IdeaProjects\\Proiect FIS - Snake Bank\\src\\main\\resources\\game\\backgroundMusic.wav";
+        Media hit = new Media(new File(bip).toURI().toString());
+        mediaPlayer = new MediaPlayer(hit);
+        mediaPlayer.setVolume(50);
+        mediaPlayer.setCycleCount(99999999);
+        mediaPlayer.play();
 
         timeline = new Timeline(new KeyFrame(Duration.seconds(speed), e -> {
             positions.add(new Position(snakeHead.getX() + xPos, snakeHead.getY() + yPos));
@@ -222,7 +254,15 @@ public class Controller implements Initializable{
 
 
                 if (checkIfGameIsOver(snakeHead))
-                    timeline.stop();
+                {timeline.stop();
+                    //GridPane1.toFront();
+                mediaPlayer.stop();gameOver=1;
+                String bip1 = "C:\\Users\\expre\\IdeaProjects\\Proiect FIS - Snake Bank\\src\\main\\resources\\game\\gameOver.wav";
+                Media hit1 = new Media(new File(bip1).toURI().toString());
+                mediaPlayer1 = new MediaPlayer(hit1);
+                mediaPlayer1.setVolume(100);
+                mediaPlayer1.play();
+                    chooseSkin.setVisible(true);}
             }
 
 
@@ -341,6 +381,12 @@ Label money;
             String txt;
             txt="Score: "+Score;
 
+            String bip2 = "C:\\Users\\expre\\IdeaProjects\\Proiect FIS - Snake Bank\\src\\main\\resources\\game\\soundEffect.wav";
+            Media hit2 = new Media(new File(bip2).toURI().toString());
+            mediaPlayer2 = new MediaPlayer(hit2);
+            mediaPlayer2.setVolume(100);
+            mediaPlayer2.play();
+
             if(Score % 10==0)
             {money.setVisible(true);
                 new java.util.Timer().schedule(
@@ -365,6 +411,13 @@ Label money;
             Score=Score+1;
             String txt;
             txt="Score: "+Score;
+
+            String bip1 = "C:\\Users\\expre\\IdeaProjects\\Proiect FIS - Snake Bank\\src\\main\\resources\\game\\soundEffect.wav";
+            Media hit1 = new Media(new File(bip1).toURI().toString());
+            mediaPlayer2 = new MediaPlayer(hit1);
+            mediaPlayer2.setVolume(100);
+            mediaPlayer2.play();
+
             score.setText(txt);
             addSnakeTail();
             extraFood.disable();
@@ -425,7 +478,7 @@ Label money;
 
 
     public void backToMenuScene(ActionEvent event) throws IOException {
-
+        mediaPlayer.stop();mediaPlayer1.stop();
         Parent root1 = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("authentication/menuScene.fxml")));
         Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene1 = new Scene(root1);
@@ -435,7 +488,9 @@ Label money;
 
     @FXML
     void chooseSkin(ActionEvent event){
+        GridPane1.toFront();
         ChooseSkin.toFront();
+        Hbox.toFront();
         ChooseSkin.setVisible(true);
     }
 

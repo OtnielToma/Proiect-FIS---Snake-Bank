@@ -7,7 +7,7 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane fx:id="anchorPane" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#moveSquareKeyPressed" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.game.Controller">
-    <GridPane alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-image: url(game/background2.jpg);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <GridPane fx:id="GridPane1" alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-image: url(game/background2.jpg);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -87,7 +87,7 @@
             </ImageView>
          </graphic>
       </Label>
-      <Button mnemonicParsing="false" onAction="#chooseSkin" onMouseClicked="#exit" style="-fx-background-color: transparent;" text="Choose Skin" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+      <Button fx:id="chooseSkin" mnemonicParsing="false" onAction="#chooseSkin" onMouseClicked="#exit" style="-fx-background-color: transparent;" text="Choose Skin" translateY="-50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <font>
             <Font name="VCR OSD Mono" size="30.0" />
          </font>
@@ -142,7 +142,7 @@
          </ImageView>
       </children>
    </GridPane>
-    <HBox prefHeight="64.0" prefWidth="1920.0" style="-fx-background-color: #666155;">
+    <HBox fx:id="Hbox" prefHeight="64.0" prefWidth="1920.0" style="-fx-background-color: #666155;">
         <children>
             <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeApp" style="-fx-background-color: transparent;" text="❌">
                 <font>
