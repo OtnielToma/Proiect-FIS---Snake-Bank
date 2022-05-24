@@ -33,12 +33,13 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image("/authentication/Logo.png"));
 
 
-        primaryStage.setWidth(1920);
-        primaryStage.setHeight(1080);
+      //  primaryStage.setWidth(1920);
+    //    primaryStage.setHeight(1080);
 
-        primaryStage.setMaximized(true);primaryStage.setResizable(false);
+        //primaryStage.setMaximized(true);
+        primaryStage.setResizable(false);
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        //primaryStage.setFullScreen(true);
+        primaryStage.setFullScreen(true);
 
         primaryStage.show();
 
