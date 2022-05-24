@@ -65,6 +65,7 @@ public class bankingcontroller {
 
     }
 
+
     public  void  popupTransfer(){
         Parent root;
         try {
@@ -77,6 +78,9 @@ public class bankingcontroller {
         catch (IOException e) {
             e.printStackTrace();
         }
+
     }
+
+
 
 }

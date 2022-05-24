@@ -13,7 +13,7 @@ import org.loose.fis.authentication.Main;
 
 import java.util.ArrayList;
 
-public class transfercontorller {
+public class transfercontroller {
     @FXML
     private VBox vBox;
 

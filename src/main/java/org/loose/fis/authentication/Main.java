@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.loose.fis.banking.FriendsListservices;
 import org.loose.fis.banking.Walletservices;
 import org.loose.fis.authentication.services.UserService;
 
@@ -21,6 +22,7 @@ public class Main extends Application {
 
         UserService.loadUsersFromFile();
         Walletservices.loadWalletFromFile();
+        FriendsListservices.loadFriendsListFromFile();
         //Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
 
         Scene scene = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("authentication/loginScene.fxml"))));
