@@ -1,4 +1,4 @@
-package org.loose.fis.banking;
+package org.loose.fis.banking.exceptions;
 
 public class InvalidTransferAmountException extends  RuntimeException{
 

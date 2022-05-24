@@ -1,12 +1,14 @@
-package org.loose.fis.banking;
+package org.loose.fis.banking.services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
 import org.loose.fis.authentication.Main;
-import org.loose.fis.authentication.model.User;
 import org.loose.fis.authentication.services.FileSystemService;
 import org.loose.fis.authentication.services.UserService;
+import org.loose.fis.banking.exceptions.CouldNotFindUserException;
+import org.loose.fis.banking.exceptions.CouldNotWriteWalletException;
+import org.loose.fis.banking.model.FriendsList;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -43,7 +45,7 @@ public class FriendsListservices {
         friends = objectMapper.readValue(FRIENDS_PATH.toFile(), new TypeReference<List<FriendsList>>() {});
     }
 
-    public static void addFriend(String friendName) throws CouldNotFindUserException{
+    public static void addFriend(String friendName) throws CouldNotFindUserException {
         for (FriendsList f:friends) {
 
             if(f.getUsername().equals(Main.getUsername()) &&  !f.getFriendsList().contains(friendName)){

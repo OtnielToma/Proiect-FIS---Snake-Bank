@@ -6,8 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import org.loose.fis.banking.FriendsListservices;
-import org.loose.fis.banking.Walletservices;
+import org.loose.fis.banking.services.FriendsListservices;
+import org.loose.fis.banking.services.Walletservices;
 import org.loose.fis.authentication.services.UserService;
 
 import java.util.Objects;
@@ -33,13 +33,13 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image("/authentication/Logo.png"));
 
 
-      //  primaryStage.setWidth(1920);
-    //    primaryStage.setHeight(1080);
+       primaryStage.setWidth(1920);
+       primaryStage.setHeight(1080);
 
-        //primaryStage.setMaximized(true);
+        primaryStage.setMaximized(true);
         primaryStage.setResizable(false);
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.setFullScreen(true);
+       // primaryStage.setFullScreen(true);
 
         primaryStage.show();
 

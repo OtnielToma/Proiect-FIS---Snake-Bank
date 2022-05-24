@@ -1,9 +1,11 @@
-package org.loose.fis.banking;
+package org.loose.fis.banking.controllers;
 
 
 import javafx.scene.control.Alert;
 import org.loose.fis.authentication.Main;
-
+import org.loose.fis.banking.exceptions.InvalidTransferAmountException;
+import org.loose.fis.banking.model.Wallet;
+import org.loose.fis.banking.services.Walletservices;
 
 
 public class shopcontroller {

@@ -1,4 +1,4 @@
-package org.loose.fis.banking;
+package org.loose.fis.banking.model;
 
 public class Wallet {
     private String username;

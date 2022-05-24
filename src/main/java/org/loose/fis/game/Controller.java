@@ -25,10 +25,9 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import org.loose.fis.banking.Wallet;
-import org.loose.fis.banking.Walletservices;
+import org.loose.fis.banking.model.Wallet;
+import org.loose.fis.banking.services.Walletservices;
 import org.loose.fis.authentication.Main;
-import sun.awt.SunToolkit;
 
 import java.io.File;
 import java.io.IOException;
@@ -255,6 +254,7 @@ public class Controller implements Initializable{
 
                 if (checkIfGameIsOver(snakeHead))
                 {timeline.stop();
+                    Hbox.toFront();
                     //GridPane1.toFront();
                 mediaPlayer.stop();gameOver=1;
                 String bip1 = "C:\\Users\\expre\\IdeaProjects\\Proiect FIS - Snake Bank\\src\\main\\resources\\game\\gameOver.wav";

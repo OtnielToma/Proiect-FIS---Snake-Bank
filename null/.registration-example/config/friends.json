@@ -1,4 +1,7 @@
-[{
-    "friendsList" : [ ],
-    "username" : "Savic"
-  } ]
+[ {
+  "friendsList" : [ ],
+  "username" : "Savic"
+}, {
+  "friendsList" : [ "Savic" ],
+  "username" : "12345"
+} ]

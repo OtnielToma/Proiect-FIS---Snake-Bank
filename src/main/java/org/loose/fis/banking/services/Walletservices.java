@@ -1,4 +1,4 @@
-package org.loose.fis.banking;
+package org.loose.fis.banking.services;
 
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -6,6 +6,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
 import org.loose.fis.authentication.services.FileSystemService;
 import org.loose.fis.authentication.services.UserService;
+import org.loose.fis.banking.exceptions.CouldNotFindWalletException;
+import org.loose.fis.banking.exceptions.CouldNotWriteWalletException;
+import org.loose.fis.banking.model.Wallet;
 
 import java.io.IOException;
 import java.nio.file.Files;

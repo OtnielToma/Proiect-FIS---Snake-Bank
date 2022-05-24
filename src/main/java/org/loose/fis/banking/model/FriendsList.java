@@ -1,7 +1,8 @@
-package org.loose.fis.banking;
+package org.loose.fis.banking.model;
 
 import org.loose.fis.authentication.model.User;
 import org.loose.fis.authentication.services.UserService;
+import org.loose.fis.banking.exceptions.CouldNotFindUserException;
 
 import java.util.ArrayList;
 

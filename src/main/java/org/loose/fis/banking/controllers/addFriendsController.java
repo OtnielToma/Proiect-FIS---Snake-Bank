@@ -1,4 +1,4 @@
-package org.loose.fis.banking;
+package org.loose.fis.banking.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.loose.fis.banking.exceptions.CouldNotFindUserException;
+import org.loose.fis.banking.services.FriendsListservices;
 
 import java.io.IOException;
 import java.util.Objects;
