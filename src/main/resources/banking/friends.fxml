@@ -21,17 +21,17 @@
          <RowConstraints />
      </rowConstraints>
       <children>
-           <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="76.0" prefWidth="661.0" text="Enter username" textAlignment="CENTER" translateY="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.valignment="TOP">
+           <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="76.0" prefWidth="661.0" text="Enter username" textAlignment="CENTER" textFill="#666155" translateY="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.valignment="TOP">
                <font>
                    <Font name="Franklin Gothic Medium" size="35.0" />
                </font>
          </Label>
-           <TextField fx:id="friendUsernameBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2147483647">
+           <TextField fx:id="friendUsernameBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="144.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2147483647">
                <font>
                    <Font size="30.0" />
                </font>
            </TextField>
-           <Button mnemonicParsing="false" onAction="#addFriendClick" prefHeight="65.0" prefWidth="235.0" style="-fx-background-color: Transparent; -fx-border-color: #666155; -fx-border-width: 5;" text="Add Friend" translateY="-200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.valignment="BOTTOM">
+           <Button mnemonicParsing="false" onAction="#addFriendClick" prefHeight="65.0" prefWidth="235.0" style="-fx-background-color: #666155; -fx-opacity: 0.5; -fx-border-width: 5; -fx-border-radius: 100; -fx-background-radius: 100;" text="Add Friend" textFill="WHITE" translateY="-200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.valignment="BOTTOM">
                <font>
                    <Font name="Franklin Gothic Medium" size="30.0" />
                </font>
